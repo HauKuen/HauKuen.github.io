@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2023-01-05T10:28:25.416Z</updated>
+  <updated>2023-01-16T14:01:28.690Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的2022</title>
+    <link href="http://example.com/2023/01/14/%E6%88%91%E7%9A%842022/"/>
+    <id>http://example.com/2023/01/14/%E6%88%91%E7%9A%842022/</id>
+    <published>2023-01-14T09:28:00.000Z</published>
+    <updated>2023-01-16T14:01:28.690Z</updated>
+    
+    <content type="html"><![CDATA[<h1>谨以此文记录我的2022</h1><h2 id="一月">一月</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;谨以此文记录我的2022&lt;/h1&gt;
+&lt;h2 id=&quot;一月&quot;&gt;一月&lt;/h2&gt;
+</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Navicat无限重置试用</title>
