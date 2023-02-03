@@ -60,7 +60,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"CPP"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -235,7 +235,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/01/14/%E6%88%91%E7%9A%842022/" target="_self">
         <div>
-          谨以此文记录我的2022 一月
+          谨以此文记录我的2022
         </div>
       </a>
 
@@ -268,7 +268,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2023/01/05/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/" target="_self">
         <div>
-          使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。 1234567891011121314151617@echo off​echo Delete HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium\Registration[version and language
+          使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。
         </div>
       </a>
 
@@ -451,7 +451,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/11/07/powershell%E7%BE%8E%E5%8C%96%E5%92%8C%E9%9B%86%E6%88%90git/" target="_self">
         <div>
-          1.安装posh-git 在powershell运行 1Install-Module posh-Install-Module posh-git 此时部分指令是无法使用的，因为powershell默认禁止运行签名脚本，所以再次运行 1Set-ExecutionPolicy Set-ExecutionPolicy RemoteSigned
+          1.安装posh-git 在powershell运行 Install-Module posh-git 此时部分指令是无法使用的，因为powershell默认禁止运行签名脚本，所以再次运行 Set-ExecutionPolicy RemoteSigned
         </div>
       </a>
 
@@ -512,7 +512,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/25/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/" target="_self">
         <div>
-          服务器操作指令总结 个人用，写的比较杂碎。 下载服务器文件到本地 123scp 用户名@IP:目标文件的地址 下载到本地的路径scp root@192.168.202.101:/data/share/target.txt /Users/target.txt scp 用户名@IP:目标文件的地址 下载到本地的路径scp root@192.168.202.101:/data/share/target.
+          服务器操作指令总结 个人用，写的比较杂碎。 下载服务器文件到本地 scp 用户名@IP:目标文件的地址 下载到本地的路径 scp root@192.168.202.101:&#x2F;data&#x2F;share&#x2F;target.txt &#x2F;Users&#x2F;target.txt  # 文件夹使用scp -r即可 查看文件大小
         </div>
       </a>
 
@@ -575,7 +575,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/24/HTML%E7%AC%94%E8%AE%B0/" target="_self">
         <div>
-          记录一下上课学的html p元素 12&lt;!--定义了html文档的段落--&gt;&lt;p&gt;这是第一个段落。&lt;/&lt;!--定义了html文档的段落--&gt;&lt;p&gt;这是第一个段落。&lt;/p> body元素 1234&lt;!--&lt;body&gt; 元素定义了 HTML 文档的主体--&gt;&lt;body&gt;&lt;p&gt;这是第一个段落。&l
+          记录一下上课学的html p元素 &lt;!--定义了html文档的段落--> &lt;p>这是第一个段落。&lt;/p> body元素 &lt;!--&lt;body> 元素定义了 HTML 文档的主体--> &lt;body> &lt;p>这是第一个段落。&lt;/p> &lt;/body>
         </div>
       </a>
 
@@ -760,7 +760,7 @@
       
       <a class="index-excerpt index-excerpt__noimg" href="/2022/10/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/" target="_self">
         <div>
-          # 跟着PHP课程重新记录一下MySQL的笔记 1.数据库操作：  创建数据库  123create database 数据库名;create database 数据库名 charset=字符集;   #设定默认字符集create database 数据库名 default cheoharacter create database 数据库名;create database 数据库名 charset
+          # 跟着PHP课程重新记录一下MySQL的笔记 1.数据库操作：  创建数据库  create database 数据库名; create database 数据库名 charset&#x3D;字符集;   #设定默认字符集 create database 数据库名 default cheoharacter set 字符集;   #设定默认字符集  删除数据库
         </div>
       </a>
 
