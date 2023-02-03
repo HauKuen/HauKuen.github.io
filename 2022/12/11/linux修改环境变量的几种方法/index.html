@@ -16,22 +16,22 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。">
+    <meta name="description" content="修改方法一： export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin:$PATH 生效方法：立即生效 有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置 用户局限：仅对当前用户 修改方法二： 通过修改.bashrc文件: vim ~&#x2F;.bashrc &#x2F;&#x2F;在最后一行添上： export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin:$PA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Navicat无限重置试用">
-<meta property="og:url" content="http://example.com/2023/01/05/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/index.html">
+<meta property="og:title" content="linux修改环境变量的几种方法">
+<meta property="og:url" content="http://example.com/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。">
+<meta property="og:description" content="修改方法一： export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin:$PATH 生效方法：立即生效 有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置 用户局限：仅对当前用户 修改方法二： 通过修改.bashrc文件: vim ~&#x2F;.bashrc &#x2F;&#x2F;在最后一行添上： export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin:$PA">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-01-05T10:24:45.000Z">
-<meta property="article:modified_time" content="2023-02-01T07:51:53.303Z">
+<meta property="article:published_time" content="2022-12-11T12:05:01.000Z">
+<meta property="article:modified_time" content="2023-02-03T13:35:31.730Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="教程">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Navicat无限重置试用 - 时砾逐光</title>
+  <title>linux修改环境变量的几种方法 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -84,7 +84,119 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="时砾逐光" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="时砾逐光" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
@@ -200,7 +312,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Navicat无限重置试用"></span>
+            <span id="subtitle" data-typed-text="linux修改环境变量的几种方法"></span>
           
         </div>
 
@@ -211,8 +323,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-05 18:24" pubdate>
-          2023年1月5日 晚上
+        <time datetime="2022-12-11 20:05" pubdate>
+          2022年12月11日 晚上
         </time>
       </span>
     
@@ -223,7 +335,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          594 字
+          589 字
         
       </span>
     
@@ -272,30 +384,40 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Navicat无限重置试用</h1>
+            <h1 style="display: none">linux修改环境变量的几种方法</h1>
             
             
               <div class="markdown-body">
                 
-                <p>使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。</p>
-<span id="more"></span>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">@echo off
-​
-echo Delete HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium\Registration[version and language]
-for &#x2F;f %%i in (&#39;&quot;REG QUERY &quot;HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium&quot; &#x2F;s | findstr &#x2F;L Registration&quot;&#39;) do (
-    reg delete %%i &#x2F;va &#x2F;f
-)
-echo.
-​
-echo Delete Info folder under HKEY_CURRENT_USER\Software\Classes\CLSID
-for &#x2F;f %%i in (&#39;&quot;REG QUERY &quot;HKEY_CURRENT_USER\Software\Classes\CLSID&quot; &#x2F;s | findstr &#x2F;E Info&quot;&#39;) do (
-    reg delete %%i &#x2F;va &#x2F;f
-)
-echo.
-​
-echo Finish
-​
-pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+                <h4 id="修改方法一：">修改方法一：</h4>
+<p><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>
+生效方法：立即生效<br>
+有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置<br>
+用户局限：仅对当前用户</p>
+<h4 id="修改方法二：">修改方法二：</h4>
+<p>通过修改.bashrc文件:<br>
+vim ~/.bashrc<br>
+//在最后一行添上：<br>
+<code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>
+生效方法：（有以下两种）<br>
+1、关闭当前终端窗口，重新打开一个新终端窗口就能生效<br>
+2、输入“source ~/.bashrc”命令，立即生效<br>
+有效期限：永久有效<br>
+用户局限：仅对当前用户</p>
+<h4 id="修改方法三">修改方法三:</h4>
+<p>通过修改profile文件:<br>
+vim /etc/profile<br>
+/export PATH //找到设置PATH的行，添加<br>
+<code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>
+生效方法：系统重启<br>
+有效期限：永久有效<br>
+用户局限：对所有用户</p>
+<h4 id="修改方法四">修改方法四:</h4>
+<p>通过修改environment文件:<br>
+vim /etc/environment<br>
+在PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"中加入“:/usr/local/mongodb/bin”<br>
+生效方法：系统重启<br>
+有效期限：永久有效</p>
 
                 
               </div>
@@ -314,7 +436,7 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
   
   
 
@@ -329,7 +451,7 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+        <a href="/tags/Linux/">#Linux</a>
       
     </div>
   
@@ -341,8 +463,8 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Navicat无限重置试用</div>
-      <div>http://example.com/2023/01/05/Navicat无限重置试用/</div>
+      <div>linux修改环境变量的几种方法</div>
+      <div>http://example.com/2022/12/11/linux修改环境变量的几种方法/</div>
     </div>
     <div class="license-meta">
       
@@ -354,7 +476,7 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月5日</div>
+          <div>2022年12月11日</div>
         </div>
       
       
@@ -386,9 +508,9 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/01/14/%E6%88%91%E7%9A%842022/" title="我的2022">
+                      <a href="/2023/01/05/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/" title="Navicat无限重置试用">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">我的2022</span>
+                        <span class="hidden-mobile">Navicat无限重置试用</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -396,8 +518,8 @@ pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></spa
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/" title="linux修改环境变量的几种方法">
-                        <span class="hidden-mobile">linux修改环境变量的几种方法</span>
+                      <a href="/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/" title="vscode的一些配置">
+                        <span class="hidden-mobile">vscode的一些配置</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

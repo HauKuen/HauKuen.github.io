@@ -42,6 +42,31 @@
   
   
   <entry>
+    <title>linux修改环境变量的几种方法</title>
+    <link href="/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
+    <url>/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<h4 id="修改方法一：">修改方法一：</h4><p><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>生效方法：立即生效<br>有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置<br>用户局限：仅对当前用户</p><h4 id="修改方法二：">修改方法二：</h4><p>通过修改.bashrc文件:<br>vim ~/.bashrc<br>//在最后一行添上：<br><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>生效方法：（有以下两种）<br>1、关闭当前终端窗口，重新打开一个新终端窗口就能生效<br>2、输入“source ~/.bashrc”命令，立即生效<br>有效期限：永久有效<br>用户局限：仅对当前用户</p><h4 id="修改方法三">修改方法三:</h4><p>通过修改profile文件:<br>vim /etc/profile<br>/export PATH //找到设置PATH的行，添加<br><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>生效方法：系统重启<br>有效期限：永久有效<br>用户局限：对所有用户</p><h4 id="修改方法四">修改方法四:</h4><p>通过修改environment文件:<br>vim /etc/environment<br>在PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"中加入“:/usr/local/mongodb/bin”<br>生效方法：系统重启<br>有效期限：永久有效</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>vscode的一些配置</title>
     <link href="/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/"/>
     <url>/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</url>
