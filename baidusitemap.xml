@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://example.com/2022/10/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-02-10</lastmod>
+  </url>
+  <url>
+    <loc>http://example.com/2022/10/24/HTML%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-02-10</lastmod>
+  </url>
+  <url>
     <loc>http://example.com/2023/01/14/%E6%88%91%E7%9A%842022/</loc>
     <lastmod>2023-02-10</lastmod>
   </url>
@@ -41,10 +49,6 @@
     <lastmod>2023-01-06</lastmod>
   </url>
   <url>
-    <loc>http://example.com/2022/10/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-12-05</lastmod>
-  </url>
-  <url>
     <loc>http://example.com/2022/10/16/Hexo-Github%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2022-12-05</lastmod>
   </url>
@@ -59,9 +63,5 @@
   <url>
     <loc>http://example.com/2022/11/07/powershell%E7%BE%8E%E5%8C%96%E5%92%8C%E9%9B%86%E6%88%90git/</loc>
     <lastmod>2022-11-18</lastmod>
-  </url>
-  <url>
-    <loc>http://example.com/2022/10/24/HTML%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-10-24</lastmod>
   </url>
 </urlset> 
