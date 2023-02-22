@@ -16,22 +16,23 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="1.安装posh-git 在powershell运行 Install-Module posh-git 此时部分指令是无法使用的，因为powershell默认禁止运行签名脚本，所以再次运行 Set-ExecutionPolicy RemoteSigned">
+    <meta name="description" content="什么是SWAP 一般来说swap指的是一个交换分区或文件，其功能是主要是在内存不够用的时候，将部分内存上的数据交换到swap空间上，以便让系统不会因内存不够用而导致oom或者更致命的情况出现。 创建SWAP 1.创建一个文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="powershell美化和集成git">
-<meta property="og:url" content="http://example.com/2022/11/07/powershell%E7%BE%8E%E5%8C%96%E5%92%8C%E9%9B%86%E6%88%90git/index.html">
+<meta property="og:title" content="Linux上创建和使用SWAP">
+<meta property="og:url" content="http://example.com/2023/02/17/Linux%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8swapfile/index.html">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="1.安装posh-git 在powershell运行 Install-Module posh-git 此时部分指令是无法使用的，因为powershell默认禁止运行签名脚本，所以再次运行 Set-ExecutionPolicy RemoteSigned">
+<meta property="og:description" content="什么是SWAP 一般来说swap指的是一个交换分区或文件，其功能是主要是在内存不够用的时候，将部分内存上的数据交换到swap空间上，以便让系统不会因内存不够用而导致oom或者更致命的情况出现。 创建SWAP 1.创建一个文件">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-07T09:04:40.000Z">
-<meta property="article:modified_time" content="2022-11-18T01:39:29.263Z">
+<meta property="article:published_time" content="2023-02-17T07:01:14.000Z">
+<meta property="article:modified_time" content="2023-02-21T08:51:24.610Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="教程">
+<meta property="article:tag" content="学习">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>powershell美化和集成git - 时砾逐光</title>
+  <title>Linux上创建和使用SWAP - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="powershell美化和集成git"></span>
+            <span id="subtitle" data-typed-text="Linux上创建和使用SWAP"></span>
           
         </div>
 
@@ -211,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-07 17:04" pubdate>
-          2022年11月7日 下午
+        <time datetime="2023-02-17 15:01" pubdate>
+          2023年2月17日 下午
         </time>
       </span>
     
@@ -223,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          278 字
+          109 字
         
       </span>
     
@@ -234,7 +235,7 @@
         
         
         
-          3 分钟
+          1 分钟
         
       </span>
     
@@ -272,20 +273,15 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">powershell美化和集成git</h1>
+            <h1 style="display: none">Linux上创建和使用SWAP</h1>
             
             
               <div class="markdown-body">
                 
-                <h4 id="1-安装posh-git">1.安装posh-git</h4>
-<p>在powershell运行</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Install-Module posh-git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>此时部分指令是无法使用的，因为powershell默认禁止运行签名脚本，所以再次运行</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">Set-ExecutionPolicy RemoteSigned<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>这样就可以允许运行签名脚本啦！</p>
-<h4 id="2-美化powershell">2.美化powershell</h4>
-<p>在<strong>Microsoft Store</strong>里搜索<strong>Windows Terminal</strong>，然后下载|打开，在设置—&gt;启动—&gt;默认终端应用程序里选择Windows终端即可。以后启动cmd或者powershell都会从Windows Terminal启动了。</p>
-<p><s>剩余内容日后再更</s></p>
+                <h3 id="什么是SWAP">什么是SWAP</h3>
+<p>一般来说swap指的是一个交换分区或文件，其功能是主要是在内存不够用的时候，将部分内存上的数据交换到swap空间上，以便让系统不会因内存不够用而导致oom或者更致命的情况出现。</p>
+<h3 id="创建SWAP">创建SWAP</h3>
+<h4 id="1-创建一个文件">1.创建一个文件</h4>
 
                 
               </div>
@@ -304,7 +300,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
   
 
@@ -319,7 +315,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
+      
+        <a href="/tags/Linux/">#Linux</a>
       
     </div>
   
@@ -331,8 +329,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>powershell美化和集成git</div>
-      <div>http://example.com/2022/11/07/powershell美化和集成git/</div>
+      <div>Linux上创建和使用SWAP</div>
+      <div>http://example.com/2023/02/17/Linux上创建和使用swapfile/</div>
     </div>
     <div class="license-meta">
       
@@ -344,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月7日</div>
+          <div>2023年2月17日</div>
         </div>
       
       
@@ -376,9 +374,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/" title="vscode的一些配置">
+                      <a href="/2023/02/21/Github%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6/" title="Github强制更新单个文件">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vscode的一些配置</span>
+                        <span class="hidden-mobile">Github强制更新单个文件</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -386,8 +384,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/10/25/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/" title="服务器操作">
-                        <span class="hidden-mobile">服务器操作</span>
+                      <a href="/2023/01/14/%E6%88%91%E7%9A%842022/" title="我的2022">
+                        <span class="hidden-mobile">我的2022</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
