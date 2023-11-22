@@ -3,11 +3,11 @@
   <title>时砾逐光</title>
   
   <subtitle>愿前路无止境</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://exusiai.top/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2023-02-21T14:17:19.424Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://exusiai.top/"/>
+  <updated>2023-11-22T14:43:56.766Z</updated>
+  <id>https://exusiai.top/</id>
   
   <author>
     <name>HauKuen</name>
@@ -17,9 +17,56 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>猴子打字-AC自动机</title>
+    <link href="https://exusiai.top/2023/11/22/%E7%8C%B4%E5%AD%90%E6%89%93%E5%AD%97-AC%E8%87%AA%E5%8A%A8%E6%9C%BA/"/>
+    <id>https://exusiai.top/2023/11/22/%E7%8C%B4%E5%AD%90%E6%89%93%E5%AD%97-AC%E8%87%AA%E5%8A%A8%E6%9C%BA/</id>
+    <published>2023-11-22T14:32:42.000Z</published>
+    <updated>2023-11-22T14:43:56.766Z</updated>
+    
+    <content type="html"><![CDATA[<p>有一个有趣的定理：无限猴子定理（infinite monkey theorem），它的表述如下：让一只猴子在打字机上随机按键，当按键次数达到无穷时，几乎必然能够打出任何给定的文字。</p><p>给出一篇猴子打出的“文章”，并给定一个由若干个词组成的词典，问猴子一共打出了多少个在词典中出现的词。</p><span id="more"></span><p><strong>输入格式:</strong></p><p>第一行一个整数 $(1≤n≤10000)$，表示词典中单词的个数。</p><p>接下来$n$行，每行一个仅由小写字母组成的单词，长度不超过 $50$。</p><p>最后一行是一篇仅由小写字母组成的文章，长度不超过 $1000000$。</p><p><strong>输出格式:</strong></p><p>一行一个整数，表示答案。</p><p><strong>输入样例：</strong></p><blockquote><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">5jskjisuansuantouloveprogramjisuantouisprogramming<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure></blockquote><p><strong>输出样例：</strong></p><blockquote><p>3</p></blockquote><p>这道题是 AC 自动机的模板题，直接套用模板就好了。</p><p>AC 自动机算法主要依靠构造一个有限状态机（类似于在一个 Trie 树中添加失配指针）来实现。</p><p>这些额外的失配指针允许在查找字符串失败时进行回退（例如设 Trie 树的单词 <code>cat</code> 匹配失败，但是在 Trie 树中存在另一个单词 <code>cart</code>，失配指针就会指向前缀 <code>ca</code>），转向某前缀的其他分支，免于重复匹配前缀，提高算法效率。</p><p>如果对 KMP 算法了解的话，应该知道 KMP 算法中的 <code>next</code> 函数的用途。KMP 中我们用 <code>next</code> 函数记录了失配后应该调整到的位置，AC 自动机的失败 <code>Fail</code> 指针具有同样的功能，也就是说当我们的模式串在 Trie 上进行匹配时，如果与当前节点的关键字不能继续匹配，就应该去当前节点的失败指针所指向的节点继续进行匹配。</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#include &lt;bits&#x2F;stdc++.h&gt;const int MAXC &#x3D; 26;const int MAXN &#x3D; 1000007;const int MAX_WORD_LEN &#x3D; 57;using namespace std;&#x2F;&#x2F; 数据量比较大，可能需要开成全局的，或者动态的，直接放在结构体中，也许会超内存int child[MAXN][MAXC], fail[MAXN], sta[MAXN], Q[MAXN];int tot;&#x2F;** * AC 自动机 *&#x2F;struct AC_Automaton &#123;&#x2F;&#x2F;    int child[MAXN][MAXC], fail[MAXN], sta[MAXN], Q[MAXN];&#x2F;&#x2F;    int tot;    &#x2F;**     * 清空     *&#x2F;    void clear() &#123;        memset(child, 255, sizeof(child));        memset(fail, 0, sizeof(fail));        tot &#x3D; 0;        memset(sta, 0, sizeof(sta));    &#125;    &#x2F;**     * 插入单词     * @param ch 单词，该单词下标从 1 开始     *&#x2F;    void insert(char* ch) &#123;        int p &#x3D; 0, l &#x3D; strlen(ch + 1);        for (int i &#x3D; 1; i &lt;&#x3D; l; i++)        &#123;            if (child[p][ch[i] - &#39;a&#39;] &#x3D;&#x3D; -1) child[p][ch[i] - &#39;a&#39;]&#x3D; ++tot;            p &#x3D; child[p][ch[i] - &#39;a&#39;];        &#125;        sta[p]++;    &#125;    &#x2F;**     * 对插入了单词的前缀树构造失败指针     *&#x2F;    void build() &#123;        int l &#x3D; 0, r &#x3D; 0;        for (int i &#x3D; 0; i &lt; MAXC; i++)            if (child[0][i] &#x3D;&#x3D; -1)                child[0][i] &#x3D; 0;            else                Q[++ r] &#x3D; child[0][i];        while (l &lt; r) &#123;            int p &#x3D; Q[++l];            for (int i &#x3D; 0; i &lt; MAXC; i++)                if (child[p][i] &#x3D;&#x3D; -1)                    child[p][i] &#x3D; child[fail[p]][i];                else &#123;                    fail[child[p][i]] &#x3D; child[fail[p]][i];                    Q[++ r] &#x3D; child[p][i];                &#125;        &#125;    &#125;    &#x2F;**     * 查询给定的字符串中，一共有多少个单词是出现在词典中的     * @param ch 给定的字符串，该字符串下标从 1 开始     * @return 该字符串中有多少单词是出现在词典中的     *&#x2F;    int solve(char* ch) &#123;        int ret &#x3D; 0, p &#x3D; 0, l &#x3D; strlen(ch + 1);        for (int i &#x3D; 1; i &lt;&#x3D; l; i++) &#123;            p &#x3D; child[p][ch[i] - &#39;a&#39;];            int tmp &#x3D; p;            while (tmp) &#123;                ret +&#x3D; sta[tmp];                sta[tmp] &#x3D; 0;                tmp &#x3D; fail[tmp];            &#125;        &#125;        return ret;    &#125;&#125;T;int main() &#123;    &#x2F;&#x2F; 构造 AC 自动机    auto ac &#x3D; new AC_Automaton();    ac-&gt;clear();    int n;    scanf(&quot;%d&quot;, &amp;n);    &#x2F;&#x2F; 读入单词，加入前缀树    char* s &#x3D; (char*)malloc(sizeof(char) * MAX_WORD_LEN);    for (int i &#x3D; 0; i &lt; n; i++) &#123;        &#x2F;&#x2F; 字符串下标从 1 开始        scanf(&quot;%s&quot;, s + 1);        ac-&gt;insert(s);    &#125;    &#x2F;&#x2F; 根据前缀树中的单词构造失败指针，即构造字典    ac-&gt;build();    &#x2F;&#x2F; 给定的文章，下标从 1 开始    char* t &#x3D; (char*)malloc(sizeof(char) * MAXN);    scanf(&quot;%s&quot;, t + 1);    printf(&quot;%d\n&quot;, ac-&gt;solve(t));    return 0;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;有一个有趣的定理：无限猴子定理（infinite monkey theorem），它的表述如下：让一只猴子在打字机上随机按键，当按键次数达到无穷时，几乎必然能够打出任何给定的文字。&lt;/p&gt;
+&lt;p&gt;给出一篇猴子打出的“文章”，并给定一个由若干个词组成的词典，问猴子一共打出了多少个在词典中出现的词。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="题解" scheme="https://exusiai.top/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+    <category term="算法" scheme="https://exusiai.top/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>oh-my-zsh自用配置记录</title>
+    <link href="https://exusiai.top/2023/11/21/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/"/>
+    <id>https://exusiai.top/2023/11/21/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/</id>
+    <published>2023-11-21T14:06:56.000Z</published>
+    <updated>2023-11-21T14:12:09.211Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="前置条件">前置条件</h3><p>已经安装了<code>git</code>和<code>zsh</code></p><h3 id="安装">安装</h3><p>1、Install oh-my-zsh via curl</p><ul><li>sh -c “$(curl -fsSL <a href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh">https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</a>)”</li></ul><p>2、Install oh-my-zsh via wget</p><ul><li>sh -c “$(wget <a href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh">https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</a> -O -)”</li></ul><p>如果是国内机有墙的话可以使用使用Static CDN提供的反代服务。将 <code>raw.githubusercontent.com</code> 换成<code>raw.staticdn.net</code>即可加速（截止2023.11.21仍可加速）</p>]]></content>
+    
+    
+    <summary type="html">&lt;h3 id=&quot;前置条件&quot;&gt;前置条件&lt;/h3&gt;
+&lt;p&gt;已经安装了&lt;code&gt;git&lt;/code&gt;和&lt;code&gt;zsh&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&quot;安装&quot;&gt;安装&lt;/h3&gt;
+&lt;p&gt;1、Install oh-my-zsh via curl&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;sh -c “$(curl -fsSL &lt;a href=&quot;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&quot;&gt;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;/a&gt;)”&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Github强制更新单个文件</title>
-    <link href="http://example.com/2023/02/21/Github%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6/"/>
-    <id>http://example.com/2023/02/21/Github%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6/</id>
+    <link href="https://exusiai.top/2023/02/21/Github%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6/"/>
+    <id>https://exusiai.top/2023/02/21/Github%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6/</id>
     <published>2023-02-21T14:17:15.000Z</published>
     <updated>2023-02-21T14:17:19.424Z</updated>
     
@@ -31,10 +78,10 @@
   
   <entry>
     <title>Linux上创建和使用SWAP</title>
-    <link href="http://example.com/2023/02/17/Linux%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8swapfile/"/>
-    <id>http://example.com/2023/02/17/Linux%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8swapfile/</id>
+    <link href="https://exusiai.top/2023/02/17/Linux%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8swapfile/"/>
+    <id>https://exusiai.top/2023/02/17/Linux%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8swapfile/</id>
     <published>2023-02-17T07:01:14.000Z</published>
-    <updated>2023-03-19T14:46:16.709Z</updated>
+    <updated>2023-11-22T14:31:59.902Z</updated>
     
     <content type="html"><![CDATA[<h3 id="什么是SWAP">什么是SWAP</h3><p>一般来说swap指的是一个交换分区或文件，其功能是主要是在内存不够用的时候，将部分内存上的数据交换到swap空间上，以便让系统不会因内存不够用而导致oom或者更致命的情况出现。</p><span id="more"></span><h3 id="创建SWAP">创建SWAP</h3><h4 id="1-创建一个交换文件">1.创建一个交换文件</h4><p>在Linux上创建交换文件非常简单，可以使用dd命令来创建一个指定大小的文件，然后使用mkswap命令将其标记为交换空间。例如，我们可以使用以下命令创建一个大小为1GB的交换文件：<br><code>sudo dd if=/dev/zero of=/swapfile bs=1024 count=1048576</code><br>这个命令的意思是用 dd 工具从 <strong>/dev/zero</strong> 读取数据，然后写入到 <strong>/swapfile</strong> 文件中。<strong>/dev/zero</strong> 是一个特殊的设备文件，它会提供无限的零字节。<strong>bs=1024</strong> 指定了每次读写的块大小为 1024 字节，也就是 1 KB。<strong>count=1048576</strong> 指定了总共要读写的块数为 1048576，也就是 1 MB。所以这个命令会创建一个大小为 1 GB 的文件，里面全是零字节。这个文件通常用来作为交换分区，用来扩展系统的内存。</p><p>上面的指令也可以写成<code>sudo dd if=/dev/zero of=/swapfile bs=1G count=1</code>，这两个命令的效果是一样的，只是读写的块大小和块数不同<br>bs的值会影响dd命令的性能，因为它决定了每次读写的数据量。如果bs的值太小，那么dd命令就需要进行更多的系统调用，这会增加开销和延迟。如果bs的值太大，那么dd命令就可能遇到缓冲区溢出或者内存不足的问题，这也会降低性能。一般来说，bs的值应该根据不同的硬件和操作系统的特点来选择，比如磁盘扇区大小、内存大小、缓存大小等。你可以尝试不同的bs的值，并且用<strong>SIGUS1信号</strong>来查看dd命令的状态报告，从而找到一个合适的bs的值。</p><h4 id="2-准备交换空间">2.准备交换空间</h4><p>创建好交换文件后，我们需要将其标记为交换空间。可以使用mkswap命令：<br><code>sudo mkswap /swapfile</code></p><p>（可选）</p><ul><li>默认权限过于宽松，我们可以限制它们，以便只有 root 用户可以使用 swapfile。</li><li><code>sudo chmod 600 /swapfile</code></li></ul><h4 id="3-使用交换空间">3.使用交换空间</h4><p>标记好交换文件后，我们需要将其挂载为交换空间。可以使用swapon命令：<br><code>sudo swapon /swapfile</code></p><h4 id="4-持久化交换空间">4.持久化交换空间</h4><p>如果我们希望在系统重启后仍然可以使用交换空间，需要将其持久化。可以将swapfile添加到/etc/fstab文件中，这样系统在启动时会自动挂载交换文件。例如，我们可以使用以下命令将swapfile添加到/etc/fstab文件中：</p><p><code>echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab</code><br>这个命令会将/swapfile添加到/etc/fstab文件中，并设置其为交换空间，你也可以手动把<code>/swapfile none swap sw 0 0</code>给追加到<code>/etc/fstab</code>的最后一行。</p><p>参数解释：</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">&#x2F;swapfile：这是要挂载的文件系统的路径，也就是我们之前创建的交换分区文件。none：这是要挂载到的目标路径，对于交换分区来说，不需要指定具体的路径，所以用 none 表示。swap：这是要挂载的文件系统的类型。sw：这是挂载选项，sw 表示交换空间。0 0：这是 dump 和 fsck 的参数，dump是要挂载的文件系统的备份频率，对于交换分区来说，不需要备份，所以用 0 表示；fsck是文件系统检查的优先级，对于交换分区来说，不需要检查，所以用 0 表示。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><h4 id="5-检查交换空间使用情况">5.检查交换空间使用情况</h4><p>使用指令<code>swapon --show</code>可以查看当前系统中的交换空间使用情况，如下图所示：</p><p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/swapon--show.png" alt="swapon --show"></p><p>参考链接：<a href="https://www.howtogeek.com/455981/how-to-create-a-swap-file-on-linux/">How to Create a Swap File on Linux</a></p>]]></content>
     
@@ -44,19 +91,19 @@
     
     
     
-    <category term="Linux" scheme="http://example.com/categories/Linux/"/>
+    <category term="Linux" scheme="https://exusiai.top/categories/Linux/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    <category term="Linux" scheme="https://exusiai.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>我的2022</title>
-    <link href="http://example.com/2023/01/14/%E6%88%91%E7%9A%842022/"/>
-    <id>http://example.com/2023/01/14/%E6%88%91%E7%9A%842022/</id>
+    <link href="https://exusiai.top/2023/01/14/%E6%88%91%E7%9A%842022/"/>
+    <id>https://exusiai.top/2023/01/14/%E6%88%91%E7%9A%842022/</id>
     <published>2023-01-14T09:28:00.000Z</published>
     <updated>2023-02-10T11:05:43.699Z</updated>
     
@@ -72,8 +119,8 @@
   
   <entry>
     <title>Navicat无限重置试用</title>
-    <link href="http://example.com/2023/01/05/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/"/>
-    <id>http://example.com/2023/01/05/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/</id>
+    <link href="https://exusiai.top/2023/01/05/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/"/>
+    <id>https://exusiai.top/2023/01/05/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/</id>
     <published>2023-01-05T10:24:45.000Z</published>
     <updated>2023-02-01T07:51:53.303Z</updated>
     
@@ -84,17 +131,17 @@
     
     
     
-    <category term="教程" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>linux修改环境变量的几种方法</title>
-    <link href="http://example.com/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
-    <id>http://example.com/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
+    <link href="https://exusiai.top/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/"/>
+    <id>https://exusiai.top/2022/12/11/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/</id>
     <published>2022-12-11T12:05:01.000Z</published>
     <updated>2023-02-17T07:02:02.272Z</updated>
     
@@ -109,17 +156,17 @@
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    <category term="Linux" scheme="https://exusiai.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>vscode的一些配置</title>
-    <link href="http://example.com/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/"/>
-    <id>http://example.com/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</id>
+    <link href="https://exusiai.top/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/"/>
+    <id>https://exusiai.top/2022/11/18/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/</id>
     <published>2022-11-18T02:21:14.000Z</published>
     <updated>2023-02-01T07:52:21.780Z</updated>
     
@@ -130,17 +177,17 @@
     
     
     
-    <category term="教程" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>windows下配置Oh My Posh</title>
-    <link href="http://example.com/2022/11/07/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh/"/>
-    <id>http://example.com/2022/11/07/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh/</id>
+    <link href="https://exusiai.top/2022/11/07/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh/"/>
+    <id>https://exusiai.top/2022/11/07/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh/</id>
     <published>2022-11-07T09:04:40.000Z</published>
     <updated>2023-02-22T11:52:05.444Z</updated>
     
@@ -155,17 +202,17 @@
     
     
     
-    <category term="教程" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>服务器操作</title>
-    <link href="http://example.com/2022/10/25/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/"/>
-    <id>http://example.com/2022/10/25/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/</id>
+    <link href="https://exusiai.top/2022/10/25/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/"/>
+    <id>https://exusiai.top/2022/10/25/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/</id>
     <published>2022-10-25T00:38:16.000Z</published>
     <updated>2023-02-17T07:01:29.058Z</updated>
     
@@ -177,21 +224,21 @@
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="Linux" scheme="http://example.com/tags/Linux/"/>
+    <category term="Linux" scheme="https://exusiai.top/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>HTML笔记</title>
-    <link href="http://example.com/2022/10/24/HTML%E7%AC%94%E8%AE%B0/"/>
-    <id>http://example.com/2022/10/24/HTML%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://exusiai.top/2022/10/24/HTML%E7%AC%94%E8%AE%B0/"/>
+    <id>https://exusiai.top/2022/10/24/HTML%E7%AC%94%E8%AE%B0/</id>
     <published>2022-10-24T11:58:31.000Z</published>
-    <updated>2023-02-10T11:17:06.994Z</updated>
+    <updated>2023-11-22T14:49:07.193Z</updated>
     
     <content type="html"><![CDATA[<p>记录一下上课学的html</p><span id="more"></span><p><strong>p</strong>元素</p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--定义了html文档的段落--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是第一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure><p><strong>body</strong>元素</p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--&lt;body> 元素定义了 HTML 文档的主体--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是第一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p><strong>html</strong>元素</p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是第一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p><strong>html标题</strong></p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--定义了html文档的标题--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是一个标题。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>这是一个标题。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这是一个标题。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p>tips:不要仅仅是为了生成<strong>粗体</strong>或<strong>大号</strong>的文本而使用标题。</p><p><strong>html水平线</strong></p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p><strong>html注释</strong></p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 这是一个注释 --></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p><strong>html超链接</strong></p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>显示文本<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token comment">&lt;!--target属性--></span><span class="token comment">&lt;!--_blank表示会在新窗口打开链接--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.bilibili.com/<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>bilibili<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token comment">&lt;!--_self表示会在本窗口打开链接--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.bilibili.com/<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_self<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>bilibili<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p><strong>head</strong>元素</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">&lt;head&gt; 元素包含了所有的头部标签元素。在 &lt;head&gt;元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息。可以添加在头部区域的元素标签为: &lt;title&gt;, &lt;style&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;, &lt;noscript&gt; 和 &lt;base&gt;。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure><p>实例</p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>文档标题<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>文档内容......<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p><strong>base</strong>元素</p><figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--&lt;base> 标签描述了基本的链接地址/链接目标，该标签作为HTML文档中所有的链接标签的默认链接--></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>base</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.exusiai.top/<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>]]></content>
     
@@ -200,17 +247,17 @@
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>操作系统PV操作的理解</title>
-    <link href="http://example.com/2022/10/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FPV%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/"/>
-    <id>http://example.com/2022/10/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FPV%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/</id>
+    <link href="https://exusiai.top/2022/10/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FPV%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/"/>
+    <id>https://exusiai.top/2022/10/21/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FPV%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/</id>
     <published>2022-10-21T14:08:46.000Z</published>
     <updated>2022-11-22T12:01:52.202Z</updated>
     
@@ -225,19 +272,19 @@
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="操作系统" scheme="http://example.com/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://exusiai.top/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
   </entry>
   
   <entry>
     <title>软件设计师学习笔记</title>
-    <link href="http://example.com/2022/10/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://example.com/2022/10/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://exusiai.top/2022/10/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>https://exusiai.top/2022/10/18/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</id>
     <published>2022-10-18T06:46:29.000Z</published>
     <updated>2022-11-22T12:03:00.708Z</updated>
     
@@ -252,17 +299,17 @@
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>数据库笔记</title>
-    <link href="http://example.com/2022/10/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"/>
-    <id>http://example.com/2022/10/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</id>
+    <link href="https://exusiai.top/2022/10/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/"/>
+    <id>https://exusiai.top/2022/10/17/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/</id>
     <published>2022-10-17T02:45:16.000Z</published>
     <updated>2023-02-10T11:17:41.000Z</updated>
     
@@ -273,17 +320,17 @@
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Hexo-GitHub搭建教程</title>
-    <link href="http://example.com/2022/10/16/Hexo-Github%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>http://example.com/2022/10/16/Hexo-Github%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</id>
+    <link href="https://exusiai.top/2022/10/16/Hexo-Github%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
+    <id>https://exusiai.top/2022/10/16/Hexo-Github%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</id>
     <published>2022-10-16T07:56:22.000Z</published>
     <updated>2022-12-05T03:12:44.016Z</updated>
     
@@ -302,21 +349,21 @@
     
     
     
-    <category term="教程" scheme="http://example.com/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="http://example.com/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://exusiai.top/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="GitHub" scheme="http://example.com/tags/GitHub/"/>
+    <category term="GitHub" scheme="https://exusiai.top/tags/GitHub/"/>
     
-    <category term="Hexo" scheme="http://example.com/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://exusiai.top/tags/Hexo/"/>
     
   </entry>
   
   <entry>
     <title>2022年第十三届蓝桥杯省赛个人题解</title>
-    <link href="http://example.com/2022/05/09/2022%E5%B9%B4%E7%AC%AC%E5%8D%81%E4%B8%89%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/"/>
-    <id>http://example.com/2022/05/09/2022%E5%B9%B4%E7%AC%AC%E5%8D%81%E4%B8%89%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</id>
+    <link href="https://exusiai.top/2022/05/09/2022%E5%B9%B4%E7%AC%AC%E5%8D%81%E4%B8%89%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/"/>
+    <id>https://exusiai.top/2022/05/09/2022%E5%B9%B4%E7%AC%AC%E5%8D%81%E4%B8%89%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</id>
     <published>2022-05-09T11:24:22.000Z</published>
     <updated>2023-02-03T13:34:06.502Z</updated>
     
@@ -361,17 +408,17 @@ int main()
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="题解" scheme="http://example.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://exusiai.top/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>CF1526B</title>
-    <link href="http://example.com/2022/05/07/CF1526B/"/>
-    <id>http://example.com/2022/05/07/CF1526B/</id>
+    <link href="https://exusiai.top/2022/05/07/CF1526B/"/>
+    <id>https://exusiai.top/2022/05/07/CF1526B/</id>
     <published>2022-05-07T14:18:59.000Z</published>
     <updated>2023-01-06T14:54:54.316Z</updated>
     
@@ -389,17 +436,17 @@ int main()
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="题解" scheme="http://example.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://exusiai.top/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>素数筛</title>
-    <link href="http://example.com/2022/05/05/%E7%B4%A0%E6%95%B0%E7%AD%9B/"/>
-    <id>http://example.com/2022/05/05/%E7%B4%A0%E6%95%B0%E7%AD%9B/</id>
+    <link href="https://exusiai.top/2022/05/05/%E7%B4%A0%E6%95%B0%E7%AD%9B/"/>
+    <id>https://exusiai.top/2022/05/05/%E7%B4%A0%E6%95%B0%E7%AD%9B/</id>
     <published>2022-05-05T13:55:34.000Z</published>
     <updated>2023-02-03T13:34:12.208Z</updated>
     
@@ -415,17 +462,17 @@ int main()
     
     
     
-    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://exusiai.top/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://exusiai.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>2022天梯赛个人题解</title>
-    <link href="http://example.com/2022/04/26/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/"/>
-    <id>http://example.com/2022/04/26/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</id>
+    <link href="https://exusiai.top/2022/04/26/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/"/>
+    <id>https://exusiai.top/2022/04/26/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/</id>
     <published>2022-04-26T06:26:37.000Z</published>
     <updated>2023-02-03T13:33:00.423Z</updated>
     
@@ -443,17 +490,17 @@ int main()
     
     
     
-    <category term="学习" scheme="http://example.com/categories/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/categories/%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="题解" scheme="http://example.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    <category term="题解" scheme="https://exusiai.top/tags/%E9%A2%98%E8%A7%A3/"/>
     
   </entry>
   
   <entry>
     <title>二分总结</title>
-    <link href="http://example.com/2022/01/07/%E4%BA%8C%E5%88%86%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2022/01/07/%E4%BA%8C%E5%88%86%E6%80%BB%E7%BB%93/</id>
+    <link href="https://exusiai.top/2022/01/07/%E4%BA%8C%E5%88%86%E6%80%BB%E7%BB%93/"/>
+    <id>https://exusiai.top/2022/01/07/%E4%BA%8C%E5%88%86%E6%80%BB%E7%BB%93/</id>
     <published>2022-01-07T09:31:37.000Z</published>
     <updated>2023-02-03T13:21:19.503Z</updated>
     
@@ -476,12 +523,12 @@ int main()
     
     
     
-    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://exusiai.top/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="学习" scheme="http://example.com/tags/%E5%AD%A6%E4%B9%A0/"/>
+    <category term="学习" scheme="https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://exusiai.top/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
