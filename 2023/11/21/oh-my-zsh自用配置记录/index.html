@@ -23,10 +23,12 @@
 <meta property="og:site_name" content="时砾逐光">
 <meta property="og:description" content="Zsh（Z Shell）是一个在Unix&#x2F;Linux操作系统中的命令行解释器，相比于Bash（Bourne Again Shell），Zsh具有更强大的自动补全、丰富的插件和主题生态系统、高级历史记录、更多的参数替换选项、灵活的数组处理和强大的调试功能。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/.zshrc%E4%B8%BB%E9%A2%98%E5%9B%BE%E7%A4%BA.png">
 <meta property="article:published_time" content="2023-11-21T14:06:56.000Z">
-<meta property="article:modified_time" content="2023-11-23T07:47:48.128Z">
+<meta property="article:modified_time" content="2023-11-23T13:46:30.684Z">
 <meta property="article:author" content="HauKuen">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/.zshrc%E4%B8%BB%E9%A2%98%E5%9B%BE%E7%A4%BA.png">
   
   
   
@@ -222,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          499 字
+          1k 字
         
       </span>
     
@@ -233,7 +235,7 @@
         
         
         
-          5 分钟
+          9 分钟
         
       </span>
     
@@ -273,14 +275,27 @@
             <!-- SEO header -->
             <h1 style="display: none">oh-my-zsh自用配置记录</h1>
             
+              <p class="note note-info">
+                
+                  
+                    本文最后更新于：2023年11月23日 晚上
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
                 <p>Zsh（Z Shell）是一个在Unix/Linux操作系统中的命令行解释器，相比于Bash（Bourne Again Shell），Zsh具有更强大的自动补全、丰富的插件和主题生态系统、高级历史记录、更多的参数替换选项、灵活的数组处理和强大的调试功能。</p>
 <span id="more"></span>
-<h3 id="前置条件">前置条件</h3>
-<p>已经安装了<code>git</code>和<code>zsh</code></p>
-<h3 id="安装">安装</h3>
+<h3 id="安装zsh">安装zsh</h3>
+<p>以我用过的OS举例</p>
+<p>Ubuntu:</p>
+<p><code>sudo apt-get install zsh</code></p>
+<p>Arch Linux:</p>
+<p><code>sudo pacman -S zsh</code></p>
+<p>安装好后运行<code>chsh -s /bin/zsh</code>设置zsh为默认shell，如果遇到极为特殊的情况zsh不在此路径下，可以使用<code>which zsh</code>来确定zsh的路径，然后在命令中进行替换，或者直接使用<code>chsh -s $(which zsh)</code>命令进行设置。</p>
+<h3 id="下载oh-my-zsh">下载oh-my-zsh</h3>
 <p>1、Install oh-my-zsh via curl</p>
 <ul>
 <li>粘贴执行 <code>sh -c &quot;$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;</code></li>
@@ -290,6 +305,14 @@
 <li>粘贴执行 <code>sh -c &quot;$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></li>
 </ul>
 <p>如果是国内机有墙的话可以使用使用Static CDN提供的反代服务。将 <code>raw.githubusercontent.com</code> 换成<code>raw.staticdn.net</code>即可加速（截止2023.11.22仍可加速）</p>
+<h3 id="个性化配置">个性化配置</h3>
+<p>原生zsh还是比较丑，手动配置也比较复杂，所以使用oh-my-zsh里的模板主题来快速上手。</p>
+<p>oh-my-zsh有很多自带的主题在<code>~/.oh-my-zsh/themes</code>里面，也可以在官方的<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">wiki</a>预览主题样式。选定好想要的主题后在主目录下编辑<code>.zshrc</code>文件，找到<code>ZSH_THEME=&quot;xxx&quot;</code>项，这里就是主题设置，把想要的主题填入保存后执行<code>source ~/.zshrc</code>即可生效。</p>
+<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/.zshrc%E4%B8%BB%E9%A2%98%E5%9B%BE%E7%A4%BA.png" srcset="/img/loading.gif" lazyload alt="主题图示"></p>
+<h4 id="插件推荐">插件推荐</h4>
+<p>oh-my-zsh同样有很多自带插件在<code>~/.oh-my-zsh/plugins</code>里，默认只启用了git，这里推荐部分我比较喜欢用的插件。</p>
+<h5 id="1、Z">1、Z</h5>
+<p>Z 插件是一个用于快速跳转到最常用目录的插件。它通过记忆和分析您在命令行中的行为来确定您最常访问的目录，并允许您使用简短的别名快速切换到这些目录。</p>
 
                 
               </div>
@@ -664,5 +687,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
