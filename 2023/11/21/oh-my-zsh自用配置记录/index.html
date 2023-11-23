@@ -24,7 +24,7 @@
 <meta property="og:description" content="Zsh（Z Shell）是一个在Unix&#x2F;Linux操作系统中的命令行解释器，相比于Bash（Bourne Again Shell），Zsh具有更强大的自动补全、丰富的插件和主题生态系统、高级历史记录、更多的参数替换选项、灵活的数组处理和强大的调试功能。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-11-21T14:06:56.000Z">
-<meta property="article:modified_time" content="2023-11-22T15:29:37.475Z">
+<meta property="article:modified_time" content="2023-11-23T07:47:48.128Z">
 <meta property="article:author" content="HauKuen">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -289,7 +289,7 @@
 <ul>
 <li>粘贴执行 <code>sh -c &quot;$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)&quot;</code></li>
 </ul>
-<p>如果是国内机有墙的话可以使用使用Static CDN提供的反代服务。将 <code>raw.githubusercontent.com</code> 换成<code>raw.staticdn.net</code>即可加速（截止2023.11.21仍可加速）</p>
+<p>如果是国内机有墙的话可以使用使用Static CDN提供的反代服务。将 <code>raw.githubusercontent.com</code> 换成<code>raw.staticdn.net</code>即可加速（截止2023.11.22仍可加速）</p>
 
                 
               </div>
@@ -664,5 +664,20 @@
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>

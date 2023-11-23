@@ -24,7 +24,7 @@
 <meta property="og:description" content="注意事项 默认已有git基础且本机已连接GitHub 1.创建GitHub Pages 仓库  在GitHub主页右上角点击+号，再点击New repository创建仓库。 接着在Repository name内输入[你的用户名].github.io 点击Create repository就创建成功  创建成功后博客地址为：https:&#x2F;&#x2F;[你的用户名].github.io">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-16T07:56:22.000Z">
-<meta property="article:modified_time" content="2023-11-23T07:46:37.707Z">
+<meta property="article:modified_time" content="2023-11-23T08:49:32.373Z">
 <meta property="article:author" content="HauKuen">
 <meta property="article:tag" content="教程">
 <meta property="article:tag" content="GitHub">
@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          745 字
+          891 字
         
       </span>
     
@@ -236,7 +236,7 @@
         
         
         
-          7 分钟
+          8 分钟
         
       </span>
     
@@ -330,6 +330,13 @@ hexo s       # 启动预览<span aria-hidden="true" class="line-numbers-rows"><s
 <ul>
 <li>运行<code>hexo d</code>部署网站，成功后便可以在<code>https://用户名.github.io</code>看到自己的博客了</li>
 </ul>
+<hr>
+<h3 id="报错记录">报错记录</h3>
+<h4 id="Permission-denied-You-can’t-use-port-4000">Permission denied. You can’t use port 4000.</h4>
+<p>原因尚未查明，虽然提示的是权限不足，但是切换管理员依旧无法在4000端口跑服务，查看端口占用也没有别的服务在使用4000，修改hexo端口就能正常跑起来，触发时就先暂时先手动指定端口使用。</p>
+<blockquote>
+<p>hexo s -p 5000</p>
+</blockquote>
 <p>更新中······</p>
 
                 
@@ -737,5 +744,20 @@ hexo s       # 启动预览<span aria-hidden="true" class="line-numbers-rows"><s
   <noscript>
     <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
   </noscript>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 </html>
