@@ -16,22 +16,22 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="传送门：CF1526B 题目描述 给你一个数x，问你这个数能不能被11,111,1111，……（最少两个1）此类数字构成。（比如33&#x3D;11+11+11,144&#x3D;111+11+11+11） 输入格式： 第一行一个正整数T（(1≤T≤10000)）表示案例数，接下来每行一个正整数x(1≤x≤10^9) 输出格式： 对于每一行的x，如果能满足题意，输出“YES”，否则输出“NO”。 输入样例：">
+    <meta name="description" content="记录一下自己的配置文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CF1526B">
-<meta property="og:url" content="https://exusiai.top/CF1526B/index.html">
+<meta property="og:title" content="vscode的一些配置">
+<meta property="og:url" content="https://exusiai.top/undefined/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="传送门：CF1526B 题目描述 给你一个数x，问你这个数能不能被11,111,1111，……（最少两个1）此类数字构成。（比如33&#x3D;11+11+11,144&#x3D;111+11+11+11） 输入格式： 第一行一个正整数T（(1≤T≤10000)）表示案例数，接下来每行一个正整数x(1≤x≤10^9) 输出格式： 对于每一行的x，如果能满足题意，输出“YES”，否则输出“NO”。 输入样例：">
+<meta property="og:description" content="记录一下自己的配置文件">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-07T14:18:59.000Z">
-<meta property="article:modified_time" content="2023-01-06T14:54:54.316Z">
+<meta property="article:published_time" content="2022-11-18T02:21:14.000Z">
+<meta property="article:modified_time" content="2023-02-01T07:52:21.780Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="题解">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>CF1526B - 时砾逐光</title>
+  <title>vscode的一些配置 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CF1526B"></span>
+            <span id="subtitle" data-typed-text="vscode的一些配置"></span>
           
         </div>
 
@@ -211,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-07 22:18" pubdate>
-          2022年5月7日 晚上
+        <time datetime="2022-11-18 10:21" pubdate>
+          2022年11月18日 上午
         </time>
       </span>
     
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          831 字
+          5.7k 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          7 分钟
+          48 分钟
         
       </span>
     
@@ -285,12 +285,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CF1526B</h1>
+            <h1 style="display: none">vscode的一些配置</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年1月6日 晚上
+                    本文最后更新于：2023年2月1日 下午
                   
                 
               </p>
@@ -298,61 +298,131 @@
             
               <div class="markdown-body">
                 
-                <p><strong>传送门：<a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1526/B">CF1526B</a></strong></p>
-<p><strong>题目描述</strong><br>
-给你一个数x，问你这个数能不能被11,111,1111，……（最少两个1）此类数字构成。（比如33=11+11+11,144=111+11+11+11）</p>
-<p><strong>输入格式：</strong><br>
-第一行一个正整数T（(1≤T≤10000)）表示案例数，接下来每行一个正整数x(1≤x≤10^9)</p>
-<p><strong>输出格式：</strong><br>
-对于每一行的x，如果能满足题意，输出“YES”，否则输出“NO”。</p>
-<p><strong>输入样例：</strong></p>
-<blockquote>
-<p>4<br>
-33<br>
-144<br>
-121<br>
-69</p>
-</blockquote>
-<p><strong>输出样例：</strong></p>
-<blockquote>
-<p>YES<br>
-YES<br>
-YES<br>
-NO</p>
-</blockquote>
-<p><strong>思路</strong><br>
-因为1111，11111,111111等都可以由11，111组成，所以只用看该数字能不能用<strong>11，111</strong>组成即可。</p>
-<p><strong>AC代码</strong></p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;cstring&gt;
-#include &lt;iostream&gt;
-#include &lt;map&gt;
-#include &lt;queue&gt;
-#include &lt;stack&gt;
-#include &lt;vector&gt;
-typedef long long ll;
-#define IOS ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
-#define max(a, b) (a &gt; b ? a : b)
-#define min(a, b) (a &lt; b ? a : b)
-using namespace std;
-
-int main()
+                <p>记录一下自己的配置文件</p>
+<span id="more"></span>
+<figure><div class="code-wrapper"><pre class="line-numbers language-json" data-language="json"><code class="language-json">&#x2F;&#x2F; setting.json
 &#123;
-    int n, a;
-    cin &gt;&gt; n;
-    for (int i &#x3D; 0; i &lt; n; i++)
-    &#123;
-        cin &gt;&gt; a;
-        int cot &#x3D; a &#x2F; 111;
-        if (a % 11 &lt;&#x3D; cot)
-            cout
-                &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
-        else
-            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
-    &#125;
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+    &quot;files.defaultLanguage&quot;: &quot;cpp&quot;, &#x2F;&#x2F; ctrl+N新建文件后默认的语言
+    &quot;editor.formatOnType&quot;: false, &#x2F;&#x2F; 输入分号(C&#x2F;C++的语句结束标识)后自动格式化当前这一行的代码
+    &quot;editor.suggest.snippetsPreventQuickSuggestions&quot;: false, &#x2F;&#x2F; clangd的snippets有很多的跳转点，不用这个就必须手动触发Intellisense了
+    &quot;editor.acceptSuggestionOnEnter&quot;: &quot;off&quot;, &#x2F;&#x2F; 我个人的习惯，按回车时一定是真正的换行，只有tab才会接受Intellisense
+    &#x2F;&#x2F; &quot;editor.snippetSuggestions&quot;: &quot;maxx&quot;, &#x2F;&#x2F; （可选）snippets显示在补全列表顶端，默认是inline
+    &quot;code-runner.runInTerminal&quot;: true, &#x2F;&#x2F; 设置成false会在“输出”中输出，无法输入
+    &quot;code-runner.executorMap&quot;: &#123;
+        &quot;c&quot;: &quot;cd $dir &amp;&amp; gcc &#39;$fileName&#39; -o &#39;$fileNameWithoutExt.exe&#39; -Wall -g -O2 -static-libgcc -std&#x3D;c11 -fexec-charset&#x3D;GBK &amp;&amp; &amp;&#39;$dir$fileNameWithoutExt&#39;&quot;,
+        &quot;cpp&quot;: &quot;cd $dir &amp;&amp; g++ &#39;$fileName&#39; -o &#39;$fileNameWithoutExt.exe&#39; -Wall -g -O2 -static-libgcc -std&#x3D;c++17 -fexec-charset&#x3D;GBK &amp;&amp; &amp;&#39;$dir$fileNameWithoutExt&#39;&quot;
+        &#x2F;&#x2F; &quot;c&quot;: &quot;cd $dir &amp;&amp; gcc $fileName -o $fileNameWithoutExt.exe -Wall -g -O2 -static-libgcc -std&#x3D;c11 -fexec-charset&#x3D;GBK &amp;&amp; $dir$fileNameWithoutExt&quot;,
+        &#x2F;&#x2F; &quot;cpp&quot;: &quot;cd $dir &amp;&amp; g++ $fileName -o $fileNameWithoutExt.exe -Wall -g -O2 -static-libgcc -std&#x3D;c++17 -fexec-charset&#x3D;GBK &amp;&amp; $dir$fileNameWithoutExt&quot;
+    &#125;, &#x2F;&#x2F; 右键run code时运行的命令；未注释的仅适用于PowerShell（Win10默认），文件名中有空格也可以编译运行；注释掉的适用于cmd（win7默认），PS和bash也能用，但文件名中有空格时无法运行
+    &quot;code-runner.saveFileBeforeRun&quot;: true, &#x2F;&#x2F; run code前保存
+    &quot;code-runner.preserveFocus&quot;: false, &#x2F;&#x2F; 若为false，run code后光标会聚焦到终端上。如果需要频繁输入数据可设为false
+    &quot;code-runner.clearPreviousOutput&quot;: false, &#x2F;&#x2F; 每次run code前清空属于code runner的终端消息，默认false
+    &quot;code-runner.ignoreSelection&quot;: true, &#x2F;&#x2F; 默认为false，效果是鼠标选中一块代码后可以单独执行，但C是编译型语言，不适合这样用
+    &#x2F;&#x2F;屏蔽一些文件试目录更加简洁
+    &quot;files.exclude&quot;: &#123;
+        &quot;**&#x2F;.git&quot;: true,
+        &quot;**&#x2F;.svn&quot;: true,
+        &quot;**&#x2F;.hg&quot;: true,
+        &quot;**&#x2F;CVS&quot;: true,
+        &quot;**&#x2F;.DS_Store&quot;: true,
+        &#x2F;&#x2F; &quot;**&#x2F;.vscode&quot;: true,
+        &quot;**&#x2F;*.exe&quot;: true,
+    &#125;,
+    &quot;python.analysis.extraPaths&quot;: [
+        &quot;D:\\Program\\anaconda\\pkgs\\requests-2.27.1-pyhd3eb1b0_0&quot;,
+        &quot;C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python310\\Lib\\site-packages&quot;,
+        &quot;D:\\Program\\anaconda\\Lib\\site-packages&quot;
+    ],
+    &quot;C_Cpp.clang_format_sortIncludes&quot;: true,
+    &quot;files.associations&quot;: &#123;
+        &quot;array&quot;: &quot;cpp&quot;,
+        &quot;atomic&quot;: &quot;cpp&quot;,
+        &quot;*.tcc&quot;: &quot;cpp&quot;,
+        &quot;cctype&quot;: &quot;cpp&quot;,
+        &quot;clocale&quot;: &quot;cpp&quot;,
+        &quot;cmath&quot;: &quot;cpp&quot;,
+        &quot;cstdarg&quot;: &quot;cpp&quot;,
+        &quot;cstddef&quot;: &quot;cpp&quot;,
+        &quot;cstdint&quot;: &quot;cpp&quot;,
+        &quot;cstdio&quot;: &quot;cpp&quot;,
+        &quot;cstdlib&quot;: &quot;cpp&quot;,
+        &quot;cwchar&quot;: &quot;cpp&quot;,
+        &quot;cwctype&quot;: &quot;cpp&quot;,
+        &quot;deque&quot;: &quot;cpp&quot;,
+        &quot;unordered_map&quot;: &quot;cpp&quot;,
+        &quot;vector&quot;: &quot;cpp&quot;,
+        &quot;exception&quot;: &quot;cpp&quot;,
+        &quot;algorithm&quot;: &quot;cpp&quot;,
+        &quot;memory&quot;: &quot;cpp&quot;,
+        &quot;memory_resource&quot;: &quot;cpp&quot;,
+        &quot;optional&quot;: &quot;cpp&quot;,
+        &quot;string&quot;: &quot;cpp&quot;,
+        &quot;string_view&quot;: &quot;cpp&quot;,
+        &quot;system_error&quot;: &quot;cpp&quot;,
+        &quot;tuple&quot;: &quot;cpp&quot;,
+        &quot;type_traits&quot;: &quot;cpp&quot;,
+        &quot;utility&quot;: &quot;cpp&quot;,
+        &quot;fstream&quot;: &quot;cpp&quot;,
+        &quot;initializer_list&quot;: &quot;cpp&quot;,
+        &quot;iosfwd&quot;: &quot;cpp&quot;,
+        &quot;iostream&quot;: &quot;cpp&quot;,
+        &quot;istream&quot;: &quot;cpp&quot;,
+        &quot;limits&quot;: &quot;cpp&quot;,
+        &quot;new&quot;: &quot;cpp&quot;,
+        &quot;ostream&quot;: &quot;cpp&quot;,
+        &quot;sstream&quot;: &quot;cpp&quot;,
+        &quot;stdexcept&quot;: &quot;cpp&quot;,
+        &quot;streambuf&quot;: &quot;cpp&quot;,
+        &quot;typeinfo&quot;: &quot;cpp&quot;,
+        &quot;forward_list&quot;: &quot;cpp&quot;,
+        &quot;list&quot;: &quot;cpp&quot;,
+        &quot;unordered_set&quot;: &quot;cpp&quot;,
+        &quot;functional&quot;: &quot;cpp&quot;,
+        &quot;future&quot;: &quot;cpp&quot;,
+        &quot;mutex&quot;: &quot;cpp&quot;,
+        &quot;thread&quot;: &quot;cpp&quot;,
+        &quot;regex&quot;: &quot;cpp&quot;,
+        &quot;valarray&quot;: &quot;cpp&quot;,
+        &quot;cstring&quot;: &quot;cpp&quot;,
+        &quot;bitset&quot;: &quot;cpp&quot;,
+        &quot;cfenv&quot;: &quot;cpp&quot;,
+        &quot;chrono&quot;: &quot;cpp&quot;,
+        &quot;cinttypes&quot;: &quot;cpp&quot;,
+        &quot;complex&quot;: &quot;cpp&quot;,
+        &quot;condition_variable&quot;: &quot;cpp&quot;,
+        &quot;csetjmp&quot;: &quot;cpp&quot;,
+        &quot;csignal&quot;: &quot;cpp&quot;,
+        &quot;ctime&quot;: &quot;cpp&quot;,
+        &quot;ratio&quot;: &quot;cpp&quot;,
+        &quot;iomanip&quot;: &quot;cpp&quot;,
+        &quot;numeric&quot;: &quot;cpp&quot;,
+        &quot;scoped_allocator&quot;: &quot;cpp&quot;,
+        &quot;typeindex&quot;: &quot;cpp&quot;,
+        &quot;random&quot;: &quot;cpp&quot;,
+        &quot;stdio.h&quot;: &quot;c&quot;,
+        &quot;process.h&quot;: &quot;c&quot;,
+        &quot;stdlib.h&quot;: &quot;c&quot;,
+        &quot;string.h&quot;: &quot;c&quot;,
+        &quot;map&quot;: &quot;cpp&quot;,
+        &quot;charconv&quot;: &quot;cpp&quot;,
+        &quot;codecvt&quot;: &quot;cpp&quot;,
+        &quot;cuchar&quot;: &quot;cpp&quot;,
+        &quot;iterator&quot;: &quot;cpp&quot;,
+        &quot;set&quot;: &quot;cpp&quot;,
+        &quot;shared_mutex&quot;: &quot;cpp&quot;,
+        &quot;queue&quot;: &quot;cpp&quot;,
+        &quot;linklist.c&quot;: &quot;cpp&quot;,
+        &quot;linkstack.c&quot;: &quot;cpp&quot;,
+        &quot;stack&quot;: &quot;cpp&quot;
+    &#125;,
+    &quot;C_Cpp.errorSquiggles&quot;: &quot;Enabled&quot;,
+    &quot;python.testing.pytestArgs&quot;: [
+        &quot;.&quot;
+    ],
+    &quot;python.testing.unittestEnabled&quot;: false,
+    &quot;python.testing.pytestEnabled&quot;: true, &#x2F;&#x2F; 格式化时调整include的顺序（按字母排序）
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
                 
               </div>
             
@@ -370,7 +440,7 @@ int main()
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
   
   
 
@@ -385,7 +455,7 @@ int main()
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
       
     </div>
   
@@ -397,8 +467,8 @@ int main()
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CF1526B</div>
-      <div>https://exusiai.top/CF1526B/</div>
+      <div>vscode的一些配置</div>
+      <div>https://exusiai.top/undefined/vscode的一些配置</div>
     </div>
     <div class="license-meta">
       
@@ -410,7 +480,7 @@ int main()
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年5月7日</div>
+          <div>2022年11月18日</div>
         </div>
       
       
@@ -442,9 +512,9 @@ int main()
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022%E5%B9%B4%E7%AC%AC%E5%8D%81%E4%B8%89%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/" title="2022年第十三届蓝桥杯省赛个人题解">
+                      <a href="/undefined/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95" title="linux修改环境变量的几种方法">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2022年第十三届蓝桥杯省赛个人题解</span>
+                        <span class="hidden-mobile">linux修改环境变量的几种方法</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -452,8 +522,8 @@ int main()
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%B4%A0%E6%95%B0%E7%AD%9B/" title="素数筛">
-                        <span class="hidden-mobile">素数筛</span>
+                      <a href="/undefined/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh" title="windows下配置Oh My Posh">
+                        <span class="hidden-mobile">windows下配置Oh My Posh</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

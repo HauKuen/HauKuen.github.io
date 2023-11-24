@@ -19,7 +19,7 @@
     <meta name="description" content="素数 素数又称质数。一个大于1的自然数，除了1和它自身外，不能被其他自然数整除的数叫做素数；否则称为合数（规定1既不是质数也不是合数）。 六倍原理 原理：除了2和3以外，其余素数都与6的倍数相邻，也就是也就是说大于3的质数一定满足或。 用途 忘了筛法的时候可以使暴力写法变得不那么暴力">
 <meta property="og:type" content="article">
 <meta property="og:title" content="素数筛">
-<meta property="og:url" content="https://exusiai.top/%E7%B4%A0%E6%95%B0%E7%AD%9B/index.html">
+<meta property="og:url" content="https://exusiai.top/undefined/%E7%B4%A0%E6%95%B0%E7%AD%9B">
 <meta property="og:site_name" content="时砾逐光">
 <meta property="og:description" content="素数 素数又称质数。一个大于1的自然数，除了1和它自身外，不能被其他自然数整除的数叫做素数；否则称为合数（规定1既不是质数也不是合数）。 六倍原理 原理：除了2和3以外，其余素数都与6的倍数相邻，也就是也就是说大于3的质数一定满足或。 用途 忘了筛法的时候可以使暴力写法变得不那么暴力">
 <meta property="og:locale" content="zh_CN">
@@ -537,7 +537,7 @@ int main()
   <div class="license-box my-3">
     <div class="license-title">
       <div>素数筛</div>
-      <div>https://exusiai.top/素数筛/</div>
+      <div>https://exusiai.top/undefined/素数筛</div>
     </div>
     <div class="license-meta">
       
@@ -581,7 +581,7 @@ int main()
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/CF1526B/" title="CF1526B">
+                      <a href="/undefined/CF1526B" title="CF1526B">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">CF1526B</span>
                         <span class="visible-mobile">上一篇</span>
@@ -591,7 +591,7 @@ int main()
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/" title="2022天梯赛个人题解">
+                      <a href="/undefined/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3" title="2022天梯赛个人题解">
                         <span class="hidden-mobile">2022天梯赛个人题解</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>

@@ -16,22 +16,21 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="记录一下上课学的html">
+    <meta name="description" content="个人博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HTML笔记">
-<meta property="og:url" content="https://exusiai.top/HTML%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Github强制更新单个文件">
+<meta property="og:url" content="https://exusiai.top/undefined/Github%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="记录一下上课学的html">
+<meta property="og:description" content="个人博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-24T11:58:31.000Z">
-<meta property="article:modified_time" content="2023-11-22T14:49:07.193Z">
+<meta property="article:published_time" content="2023-02-21T14:17:15.000Z">
+<meta property="article:modified_time" content="2023-02-21T14:17:19.424Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>HTML笔记 - 时砾逐光</title>
+  <title>Github强制更新单个文件 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="HTML笔记"></span>
+            <span id="subtitle" data-typed-text="Github强制更新单个文件"></span>
           
         </div>
 
@@ -211,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-24 19:58" pubdate>
-          2022年10月24日 晚上
+        <time datetime="2023-02-21 22:17" pubdate>
+          2023年2月21日 晚上
         </time>
       </span>
     
@@ -223,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          0 字
         
       </span>
     
@@ -234,7 +233,7 @@
         
         
         
-          10 分钟
+          1 分钟
         
       </span>
     
@@ -285,12 +284,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">HTML笔记</h1>
+            <h1 style="display: none">Github强制更新单个文件</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月22日 晚上
+                    本文最后更新于：2023年2月21日 晚上
                   
                 
               </p>
@@ -298,68 +297,7 @@
             
               <div class="markdown-body">
                 
-                <p>记录一下上课学的html</p>
-<span id="more"></span>
-<p><strong>p</strong>元素</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--定义了html文档的段落--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是第一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
-<p><strong>body</strong>元素</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--&lt;body> 元素定义了 HTML 文档的主体--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是第一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p><strong>html</strong>元素</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是第一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p><strong>html标题</strong></p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--定义了html文档的标题--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>这是一个标题。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>这是一个标题。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">></span></span>这是一个标题。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p>tips:不要仅仅是为了生成<strong>粗体</strong>或<strong>大号</strong>的文本而使用标题。</p>
-<p><strong>html水平线</strong></p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hr</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>这是一个段落。<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p><strong>html注释</strong></p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 这是一个注释 --></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p><strong>html超链接</strong></p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>url<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>显示文本<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!--target属性--></span>
-<span class="token comment">&lt;!--_blank表示会在新窗口打开链接--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.bilibili.com/<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>bilibili<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
-<span class="token comment">&lt;!--_self表示会在本窗口打开链接--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://www.bilibili.com/<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_self<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>bilibili<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p><strong>head</strong>元素</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">&lt;head&gt; 元素包含了所有的头部标签元素。在 &lt;head&gt;元素中你可以插入脚本（scripts）, 样式文件（CSS），及各种meta信息。
-
-可以添加在头部区域的元素标签为: &lt;title&gt;, &lt;style&gt;, &lt;meta&gt;, &lt;link&gt;, &lt;script&gt;, &lt;noscript&gt; 和 &lt;base&gt;。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
-<p>实例</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span> 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>文档标题<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
- 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-文档内容......
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
- 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p><strong>base</strong>元素</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!--&lt;base> 标签描述了基本的链接地址/链接目标，该标签作为HTML文档中所有的链接标签的默认链接--></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>base</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://www.exusiai.top/<span class="token punctuation">"</span></span> <span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-
+                
                 
               </div>
             
@@ -367,34 +305,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
-      
-    </div>
   
 </div>
 
@@ -404,8 +314,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>HTML笔记</div>
-      <div>https://exusiai.top/HTML笔记/</div>
+      <div>Github强制更新单个文件</div>
+      <div>https://exusiai.top/undefined/Github强制更新单个文件</div>
     </div>
     <div class="license-meta">
       
@@ -417,7 +327,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月24日</div>
+          <div>2023年2月21日</div>
         </div>
       
       
@@ -449,9 +359,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/" title="服务器操作">
+                      <a href="/undefined/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95" title="oh-my-zsh自用配置记录">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">服务器操作</span>
+                        <span class="hidden-mobile">oh-my-zsh自用配置记录</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -459,8 +369,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FPV%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3/" title="操作系统PV操作的理解">
-                        <span class="hidden-mobile">操作系统PV操作的理解</span>
+                      <a href="/undefined/Linux%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8swapfile" title="Linux上创建和使用SWAP">
+                        <span class="hidden-mobile">Linux上创建和使用SWAP</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

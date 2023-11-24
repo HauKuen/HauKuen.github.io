@@ -16,24 +16,22 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。">
+    <meta name="description" content="使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows下配置Oh My Posh">
-<meta property="og:url" content="https://exusiai.top/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh/index.html">
+<meta property="og:title" content="Navicat无限重置试用">
+<meta property="og:url" content="https://exusiai.top/undefined/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。">
+<meta property="og:description" content="使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png">
-<meta property="article:published_time" content="2022-11-07T09:04:40.000Z">
-<meta property="article:modified_time" content="2023-11-23T08:37:57.531Z">
+<meta property="article:published_time" content="2023-01-05T10:24:45.000Z">
+<meta property="article:modified_time" content="2023-02-01T07:51:53.303Z">
 <meta property="article:author" content="HauKuen">
 <meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png">
   
   
   
-  <title>windows下配置Oh My Posh - 时砾逐光</title>
+  <title>Navicat无限重置试用 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="windows下配置Oh My Posh"></span>
+            <span id="subtitle" data-typed-text="Navicat无限重置试用"></span>
           
         </div>
 
@@ -213,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-07 17:04" pubdate>
-          2022年11月7日 下午
+        <time datetime="2023-01-05 18:24" pubdate>
+          2023年1月5日 晚上
         </time>
       </span>
     
@@ -225,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          594 字
         
       </span>
     
@@ -236,7 +234,7 @@
         
         
         
-          11 分钟
+          5 分钟
         
       </span>
     
@@ -287,12 +285,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">windows下配置Oh My Posh</h1>
+            <h1 style="display: none">Navicat无限重置试用</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月23日 下午
+                    本文最后更新于：2023年2月1日 下午
                   
                 
               </p>
@@ -300,50 +298,26 @@
             
               <div class="markdown-body">
                 
-                <p>Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。</p>
+                <p>使用清除注册表方法来达到无限试用Navicat Premium 16的效果，bat文件如下。可以设置定时任务来自动进行注册表清除。</p>
 <span id="more"></span>
-<h3 id="安装oh-my-posh">安装oh-my-posh</h3>
-<p>使用winget安装</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">winget install JanDeDobbeleer.OhMyPosh -s winget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>使用scoop安装</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">scoop install https:&#x2F;&#x2F;github.com&#x2F;JanDeDobbeleer&#x2F;oh-my-posh&#x2F;releases&#x2F;latest&#x2F;download&#x2F;oh-my-posh.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>普通安装</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString(&#39;https:&#x2F;&#x2F;ohmyposh.dev&#x2F;install.ps1&#39;))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<br>
-推荐使用scoop安装，如果没有scoop，也可以去Microsoft Store安装oh-my-posh。
-<h3 id="下载一个字体">下载一个字体</h3>
-<p>在管理员权限的命令行中输入以下指令，选择一个字体进行下载，如果频繁下载失败可以自行去网络搜索字体下载安装。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">oh-my-posh font install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>安装字体后，需要配置 Windows 终端才能使用它。这可以通过修改Windows终端设置（默认快捷方式：CTRL + SHIFT + ，）打开settings.json 文件，在配置文件中的默认属性下添加 font.face 属性。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
-    &quot;profiles&quot;:
-    &#123;
-        &quot;defaults&quot;:
-        &#123;
-            &quot;font&quot;:
-            &#123;
-                &quot;face&quot;: &quot;MesloLGM NF&quot;
-            &#125;
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<h3 id="更改命令行主题">更改命令行主题</h3>
-<p>一般来说windows下推荐使用powershell，所以在<strong>powershell</strong>中输入以下指令，提示没有文件则点击新建文件。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">notepad $PROFILE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>在文件中输入</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">oh-my-posh init pwsh | Invoke-Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>添加之后，重新加载配置文件以使更改生效。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">. $PROFILE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>做完以上步骤之后，就可以在powershell中使用oh-my-posh了。</p>
-<h3 id="更改主题">更改主题</h3>
-<p>在powershell中输入以下指令，可以查看主题。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Get-PoshThemes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>在最底部有主题文件的位置，记录下你想修改的主题路径。</p>
-<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png" srcset="/img/loading.gif" lazyload alt="我的主题路径"></p>
-<p>以我的主题1_shell为例，输入指令修改文件</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">notepad $profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>将之前的文件内容替换为以下内容便可以使用自己的主题了。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">oh-my-posh init pwsh --config "这里是你的主题路径，注意不要引号" | Invoke-Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">@echo off
+​
+echo Delete HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium\Registration[version and language]
+for &#x2F;f %%i in (&#39;&quot;REG QUERY &quot;HKEY_CURRENT_USER\Software\PremiumSoft\NavicatPremium&quot; &#x2F;s | findstr &#x2F;L Registration&quot;&#39;) do (
+    reg delete %%i &#x2F;va &#x2F;f
+)
+echo.
+​
+echo Delete Info folder under HKEY_CURRENT_USER\Software\Classes\CLSID
+for &#x2F;f %%i in (&#39;&quot;REG QUERY &quot;HKEY_CURRENT_USER\Software\Classes\CLSID&quot; &#x2F;s | findstr &#x2F;E Info&quot;&#39;) do (
+    reg delete %%i &#x2F;va &#x2F;f
+)
+echo.
+​
+echo Finish
+​
+pause<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
                 
               </div>
             
@@ -388,8 +362,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>windows下配置Oh My Posh</div>
-      <div>https://exusiai.top/windows下配置Oh My Posh/</div>
+      <div>Navicat无限重置试用</div>
+      <div>https://exusiai.top/undefined/Navicat无限重置试用</div>
     </div>
     <div class="license-meta">
       
@@ -401,7 +375,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月7日</div>
+          <div>2023年1月5日</div>
         </div>
       
       
@@ -433,9 +407,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/" title="vscode的一些配置">
+                      <a href="/undefined/2022%E5%B9%B4%E6%80%BB%E7%BB%93" title="我的2022">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vscode的一些配置</span>
+                        <span class="hidden-mobile">我的2022</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -443,8 +417,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C/" title="服务器操作">
-                        <span class="hidden-mobile">服务器操作</span>
+                      <a href="/undefined/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95" title="linux修改环境变量的几种方法">
+                        <span class="hidden-mobile">linux修改环境变量的几种方法</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

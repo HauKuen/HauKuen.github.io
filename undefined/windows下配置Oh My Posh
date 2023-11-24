@@ -16,22 +16,24 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="修改方法一： export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin:$PATH 生效方法：立即生效 有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置 用户局限：仅对当前用户">
+    <meta name="description" content="Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux修改环境变量的几种方法">
-<meta property="og:url" content="https://exusiai.top/linux%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E6%B3%95/index.html">
+<meta property="og:title" content="windows下配置Oh My Posh">
+<meta property="og:url" content="https://exusiai.top/undefined/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="修改方法一： export PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;mongodb&#x2F;bin:$PATH 生效方法：立即生效 有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置 用户局限：仅对当前用户">
+<meta property="og:description" content="Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-12-11T12:05:01.000Z">
-<meta property="article:modified_time" content="2023-02-17T07:02:02.272Z">
+<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png">
+<meta property="article:published_time" content="2022-11-07T09:04:40.000Z">
+<meta property="article:modified_time" content="2023-11-23T08:37:57.531Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="教程">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png">
   
   
   
-  <title>linux修改环境变量的几种方法 - 时砾逐光</title>
+  <title>windows下配置Oh My Posh - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -84,119 +86,7 @@
 
 
   
-<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
-  direction: ltr;
-}
-
-mjx-container[jax="SVG"] > svg {
-  overflow: visible;
-}
-
-mjx-container[jax="SVG"][display="true"] {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-mjx-container[jax="SVG"][justify="left"] {
-  text-align: left;
-}
-
-mjx-container[jax="SVG"][justify="right"] {
-  text-align: right;
-}
-
-g[data-mml-node="merror"] > g {
-  fill: red;
-  stroke: red;
-}
-
-g[data-mml-node="merror"] > rect[data-background] {
-  fill: yellow;
-  stroke: none;
-}
-
-g[data-mml-node="mtable"] > line[data-line] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > rect[data-frame] {
-  stroke-width: 70px;
-  fill: none;
-}
-
-g[data-mml-node="mtable"] > .mjx-dashed {
-  stroke-dasharray: 140;
-}
-
-g[data-mml-node="mtable"] > .mjx-dotted {
-  stroke-linecap: round;
-  stroke-dasharray: 0,140;
-}
-
-g[data-mml-node="mtable"] > svg {
-  overflow: visible;
-}
-
-[jax="SVG"] mjx-tool {
-  display: inline-block;
-  position: relative;
-  width: 0;
-  height: 0;
-}
-
-[jax="SVG"] mjx-tool > mjx-tip {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-mjx-tool > mjx-tip {
-  display: inline-block;
-  padding: .2em;
-  border: 1px solid #888;
-  font-size: 70%;
-  background-color: #F8F8F8;
-  color: black;
-  box-shadow: 2px 2px 5px #AAAAAA;
-}
-
-g[data-mml-node="maction"][data-toggle] {
-  cursor: pointer;
-}
-
-mjx-status {
-  display: block;
-  position: fixed;
-  left: 1em;
-  bottom: 1em;
-  min-width: 25%;
-  padding: .2em .4em;
-  border: 1px solid #888;
-  font-size: 90%;
-  background-color: #F8F8F8;
-  color: black;
-}
-
-foreignObject[data-mjx-xml] {
-  font-family: initial;
-  line-height: normal;
-  overflow: visible;
-}
-
-.MathJax path {
-  stroke-width: 3;
-}
-
-mjx-container[display="true"] {
-  overflow: auto hidden;
-}
-
-mjx-container[display="true"] + br {
-  display: none;
-}
-</style><link rel="alternate" href="/atom.xml" title="时砾逐光" type="application/atom+xml">
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="时砾逐光" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 
@@ -312,7 +202,7 @@ mjx-container[display="true"] + br {
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="linux修改环境变量的几种方法"></span>
+            <span id="subtitle" data-typed-text="windows下配置Oh My Posh"></span>
           
         </div>
 
@@ -323,8 +213,8 @@ mjx-container[display="true"] + br {
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-11 20:05" pubdate>
-          2022年12月11日 晚上
+        <time datetime="2022-11-07 17:04" pubdate>
+          2022年11月7日 下午
         </time>
       </span>
     
@@ -335,7 +225,7 @@ mjx-container[display="true"] + br {
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          589 字
+          1.3k 字
         
       </span>
     
@@ -346,7 +236,7 @@ mjx-container[display="true"] + br {
         
         
         
-          5 分钟
+          11 分钟
         
       </span>
     
@@ -397,12 +287,12 @@ mjx-container[display="true"] + br {
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">linux修改环境变量的几种方法</h1>
+            <h1 style="display: none">windows下配置Oh My Posh</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年2月17日 下午
+                    本文最后更新于：2023年11月23日 下午
                   
                 
               </p>
@@ -410,37 +300,50 @@ mjx-container[display="true"] + br {
             
               <div class="markdown-body">
                 
-                <h4 id="修改方法一：">修改方法一：</h4>
-<p><code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>
-生效方法：立即生效<br>
-有效期限：临时改变，只能在当前的终端窗口中有效，当前窗口关闭后就会恢复原有的path配置<br>
-用户局限：仅对当前用户</p>
+                <p>Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。</p>
 <span id="more"></span>
-<h4 id="修改方法二：">修改方法二：</h4>
-<p>通过修改.bashrc文件:<br>
-vim ~/.bashrc<br>
-//在最后一行添上：<br>
-<code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>
-生效方法：（有以下两种）<br>
-1、关闭当前终端窗口，重新打开一个新终端窗口就能生效<br>
-2、输入“source ~/.bashrc”命令，立即生效<br>
-有效期限：永久有效<br>
-用户局限：仅对当前用户</p>
-<h4 id="修改方法三">修改方法三:</h4>
-<p>通过修改profile文件:<br>
-vim /etc/profile<br>
-/export PATH //找到设置PATH的行，添加<br>
-<code>export PATH=/usr/local/mongodb/bin:$PATH</code><br>
-生效方法：系统重启<br>
-有效期限：永久有效<br>
-用户局限：对所有用户</p>
-<h4 id="修改方法四">修改方法四:</h4>
-<p>通过修改environment文件:<br>
-vim /etc/environment<br>
-在PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"中加入“:/usr/local/mongodb/bin”<br>
-生效方法：系统重启<br>
-有效期限：永久有效</p>
-
+<h3 id="安装oh-my-posh">安装oh-my-posh</h3>
+<p>使用winget安装</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">winget install JanDeDobbeleer.OhMyPosh -s winget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>使用scoop安装</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">scoop install https:&#x2F;&#x2F;github.com&#x2F;JanDeDobbeleer&#x2F;oh-my-posh&#x2F;releases&#x2F;latest&#x2F;download&#x2F;oh-my-posh.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>普通安装</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString(&#39;https:&#x2F;&#x2F;ohmyposh.dev&#x2F;install.ps1&#39;))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<br>
+推荐使用scoop安装，如果没有scoop，也可以去Microsoft Store安装oh-my-posh。
+<h3 id="下载一个字体">下载一个字体</h3>
+<p>在管理员权限的命令行中输入以下指令，选择一个字体进行下载，如果频繁下载失败可以自行去网络搜索字体下载安装。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">oh-my-posh font install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>安装字体后，需要配置 Windows 终端才能使用它。这可以通过修改Windows终端设置（默认快捷方式：CTRL + SHIFT + ，）打开settings.json 文件，在配置文件中的默认属性下添加 font.face 属性。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
+    &quot;profiles&quot;:
+    &#123;
+        &quot;defaults&quot;:
+        &#123;
+            &quot;font&quot;:
+            &#123;
+                &quot;face&quot;: &quot;MesloLGM NF&quot;
+            &#125;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<h3 id="更改命令行主题">更改命令行主题</h3>
+<p>一般来说windows下推荐使用powershell，所以在<strong>powershell</strong>中输入以下指令，提示没有文件则点击新建文件。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">notepad $PROFILE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>在文件中输入</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">oh-my-posh init pwsh | Invoke-Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>添加之后，重新加载配置文件以使更改生效。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">. $PROFILE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>做完以上步骤之后，就可以在powershell中使用oh-my-posh了。</p>
+<h3 id="更改主题">更改主题</h3>
+<p>在powershell中输入以下指令，可以查看主题。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Get-PoshThemes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>在最底部有主题文件的位置，记录下你想修改的主题路径。</p>
+<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png" srcset="/img/loading.gif" lazyload alt="我的主题路径"></p>
+<p>以我的主题1_shell为例，输入指令修改文件</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">notepad $profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>将之前的文件内容替换为以下内容便可以使用自己的主题了。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">oh-my-posh init pwsh --config "这里是你的主题路径，注意不要引号" | Invoke-Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
                 
               </div>
             
@@ -458,7 +361,7 @@ vim /etc/environment<br>
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
   
   
 
@@ -473,7 +376,7 @@ vim /etc/environment<br>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
       
     </div>
   
@@ -485,8 +388,8 @@ vim /etc/environment<br>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>linux修改环境变量的几种方法</div>
-      <div>https://exusiai.top/linux修改环境变量的几种方法/</div>
+      <div>windows下配置Oh My Posh</div>
+      <div>https://exusiai.top/undefined/windows下配置Oh My Posh</div>
     </div>
     <div class="license-meta">
       
@@ -498,7 +401,7 @@ vim /etc/environment<br>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月11日</div>
+          <div>2022年11月7日</div>
         </div>
       
       
@@ -530,9 +433,9 @@ vim /etc/environment<br>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Navicat%E6%97%A0%E9%99%90%E9%87%8D%E7%BD%AE%E8%AF%95%E7%94%A8/" title="Navicat无限重置试用">
+                      <a href="/undefined/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE" title="vscode的一些配置">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Navicat无限重置试用</span>
+                        <span class="hidden-mobile">vscode的一些配置</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -540,8 +443,8 @@ vim /etc/environment<br>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE/" title="vscode的一些配置">
-                        <span class="hidden-mobile">vscode的一些配置</span>
+                      <a href="/undefined/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C" title="服务器操作">
+                        <span class="hidden-mobile">服务器操作</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

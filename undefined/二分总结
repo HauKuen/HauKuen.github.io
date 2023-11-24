@@ -19,7 +19,7 @@
     <meta name="description" content="序 以前学习二分的时候一直没有搞清楚什么时候，什么时候，更新的时候是还是，但是一直迷迷糊糊的也能写对题，后面也没有多管。这个寒假重新学一遍基础算法，才明白为什么会有这两种情况。 整数二分的两种情况 第一种  这种情况代码如下 while (l &lt; r)     {         int mid &#x3D; l + r + 1 &gt;&gt; 1;         if (check(mid))">
 <meta property="og:type" content="article">
 <meta property="og:title" content="二分总结">
-<meta property="og:url" content="https://exusiai.top/%E4%BA%8C%E5%88%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:url" content="https://exusiai.top/undefined/%E4%BA%8C%E5%88%86%E6%80%BB%E7%BB%93">
 <meta property="og:site_name" content="时砾逐光">
 <meta property="og:description" content="序 以前学习二分的时候一直没有搞清楚什么时候，什么时候，更新的时候是还是，但是一直迷迷糊糊的也能写对题，后面也没有多管。这个寒假重新学一遍基础算法，才明白为什么会有这两种情况。 整数二分的两种情况 第一种  这种情况代码如下 while (l &lt; r)     {         int mid &#x3D; l + r + 1 &gt;&gt; 1;         if (check(mid))">
 <meta property="og:locale" content="zh_CN">
@@ -588,7 +588,7 @@ else
   <div class="license-box my-3">
     <div class="license-title">
       <div>二分总结</div>
-      <div>https://exusiai.top/二分总结/</div>
+      <div>https://exusiai.top/undefined/二分总结</div>
     </div>
     <div class="license-meta">
       
@@ -632,7 +632,7 @@ else
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3/" title="2022天梯赛个人题解">
+                      <a href="/undefined/2022%E5%A4%A9%E6%A2%AF%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3" title="2022天梯赛个人题解">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">2022天梯赛个人题解</span>
                         <span class="visible-mobile">上一篇</span>

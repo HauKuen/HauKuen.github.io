@@ -16,22 +16,25 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="跟着PHP课程重新记录一下MySQL的笔记">
+    <meta name="description" content="什么是SWAP 一般来说swap指的是一个交换分区或文件，其功能是主要是在内存不够用的时候，将部分内存上的数据交换到swap空间上，以便让系统不会因内存不够用而导致oom或者更致命的情况出现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据库笔记">
-<meta property="og:url" content="https://exusiai.top/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Linux上创建和使用SWAP">
+<meta property="og:url" content="https://exusiai.top/undefined/Linux%E4%B8%8A%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8swapfile">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="跟着PHP课程重新记录一下MySQL的笔记">
+<meta property="og:description" content="什么是SWAP 一般来说swap指的是一个交换分区或文件，其功能是主要是在内存不够用的时候，将部分内存上的数据交换到swap空间上，以便让系统不会因内存不够用而导致oom或者更致命的情况出现。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-10-17T02:45:16.000Z">
-<meta property="article:modified_time" content="2023-11-22T15:09:06.260Z">
+<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/swapon--show.png">
+<meta property="article:published_time" content="2023-02-17T07:01:14.000Z">
+<meta property="article:modified_time" content="2023-11-22T14:31:59.902Z">
 <meta property="article:author" content="HauKuen">
 <meta property="article:tag" content="学习">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/swapon--show.png">
   
   
   
-  <title>数据库笔记 - 时砾逐光</title>
+  <title>Linux上创建和使用SWAP - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +203,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="数据库笔记"></span>
+            <span id="subtitle" data-typed-text="Linux上创建和使用SWAP"></span>
           
         </div>
 
@@ -211,8 +214,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-17 10:45" pubdate>
-          2022年10月17日 上午
+        <time datetime="2023-02-17 15:01" pubdate>
+          2023年2月17日 下午
         </time>
       </span>
     
@@ -223,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          1.5k 字
         
       </span>
     
@@ -234,7 +237,7 @@
         
         
         
-          23 分钟
+          13 分钟
         
       </span>
     
@@ -285,7 +288,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">数据库笔记</h1>
+            <h1 style="display: none">Linux上创建和使用SWAP</h1>
             
               <p class="note note-info">
                 
@@ -298,187 +301,41 @@
             
               <div class="markdown-body">
                 
-                <h4 id="跟着PHP课程重新记录一下MySQL的笔记">跟着PHP课程重新记录一下MySQL的笔记</h4>
+                <h3 id="什么是SWAP">什么是SWAP</h3>
+<p>一般来说swap指的是一个交换分区或文件，其功能是主要是在内存不够用的时候，将部分内存上的数据交换到swap空间上，以便让系统不会因内存不够用而导致oom或者更致命的情况出现。</p>
 <span id="more"></span>
-<h4 id="1-数据库操作：">1.数据库操作：</h4>
+<h3 id="创建SWAP">创建SWAP</h3>
+<h4 id="1-创建一个交换文件">1.创建一个交换文件</h4>
+<p>在Linux上创建交换文件非常简单，可以使用dd命令来创建一个指定大小的文件，然后使用mkswap命令将其标记为交换空间。例如，我们可以使用以下命令创建一个大小为1GB的交换文件：<br>
+<code>sudo dd if=/dev/zero of=/swapfile bs=1024 count=1048576</code><br>
+这个命令的意思是用 dd 工具从 <strong>/dev/zero</strong> 读取数据，然后写入到 <strong>/swapfile</strong> 文件中。<strong>/dev/zero</strong> 是一个特殊的设备文件，它会提供无限的零字节。<strong>bs=1024</strong> 指定了每次读写的块大小为 1024 字节，也就是 1 KB。<strong>count=1048576</strong> 指定了总共要读写的块数为 1048576，也就是 1 MB。所以这个命令会创建一个大小为 1 GB 的文件，里面全是零字节。这个文件通常用来作为交换分区，用来扩展系统的内存。</p>
+<p>上面的指令也可以写成<code>sudo dd if=/dev/zero of=/swapfile bs=1G count=1</code>，这两个命令的效果是一样的，只是读写的块大小和块数不同<br>
+bs的值会影响dd命令的性能，因为它决定了每次读写的数据量。如果bs的值太小，那么dd命令就需要进行更多的系统调用，这会增加开销和延迟。如果bs的值太大，那么dd命令就可能遇到缓冲区溢出或者内存不足的问题，这也会降低性能。一般来说，bs的值应该根据不同的硬件和操作系统的特点来选择，比如磁盘扇区大小、内存大小、缓存大小等。你可以尝试不同的bs的值，并且用<strong>SIGUS1信号</strong>来查看dd命令的状态报告，从而找到一个合适的bs的值。</p>
+<h4 id="2-准备交换空间">2.准备交换空间</h4>
+<p>创建好交换文件后，我们需要将其标记为交换空间。可以使用mkswap命令：<br>
+<code>sudo mkswap /swapfile</code></p>
+<p>（可选）</p>
 <ul>
-<li>创建数据库</li>
+<li>默认权限过于宽松，我们可以限制它们，以便只有 root 用户可以使用 swapfile。</li>
+<li><code>sudo chmod 600 /swapfile</code></li>
 </ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">create database 数据库名;
-create database 数据库名 charset&#x3D;字符集;   #设定默认字符集
-create database 数据库名 default cheoharacter set 字符集;   #设定默认字符集<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>删除数据库</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">drop database 数据库名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>使用数据库</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">use 数据库名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>查询当前正在使用的数据库</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select database();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>设置数据库字符集</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">alter database 数据库名 character set 字符集;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<h4 id="2-数据表操作">2.数据表操作</h4>
-<ul>
-<li>创建表</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">create table 表名 (字段名 字段类型 [NOT NULL]);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>查询数据库的表格个数</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 第一种写法
-show tables from 数据库名;
-
-# 第二种写法,如果已经选择了使用的数据库则可以直接
-show tables;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>修改表名</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">rename table 旧表名 to 新表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>查看表格的详细信息</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">show create table 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>查看字段</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">desc 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>插入数据</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 两种写法into都可以省略
-insert into 表名 values(数据1, 数据2...) (数据1, 数据2...) # 可同时插入多组数据
-insert into 表名 (字段1,字段2...) values (数据1, 数据2...) # 这种写法可以跳过部分字段<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>查询数据</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select 字段1,字段2 from 表名 [where...][limit n][offset m]
-
-# LIMIT 属性来设定返回的记录数。
-# OFFSET指定SELECT语句开始查询的数据偏移量。默认情况下偏移量为0。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>更新数据</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">update 表名 set 字段1 &#x3D; 值1,字段2 &#x3D; 值2 [where...]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>删除数据</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">delete from 表名 [where...]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<h4 id="3-筛选条件">3.筛选条件</h4>
-<ul>
-<li>去重(<strong>distinct</strong>)</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">例：select distinct job from user;  # 查询user表中所有不重复的job名
-经常使用（count(distinct id)）来返回不重复字段的条数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li><strong>NULL</strong></li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 可以在语句中加入is null 和is not null来筛选字段数据
-例：select * from user where job is not null;   # 查询user表中所有有工作的人的信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li><strong>between</strong></li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select * from user where age between 20 and 30;  #包含范围两端<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li><strong>in</strong></li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#  in运算符允许确定指定的值是否与列表中的值或子查询中的任何值匹配。 也可以搭配not使用
-select 字段1,字段2 from 表名 where (expr|column_1) in (值1,值2);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li><strong>as</strong></li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 设置字段的别名
-select 字段名 as &quot;别名&quot; from 表名;  # 最完整的写法 as和引号都可以省略
-
-例如:
-select 字段名 &quot;别名&quot; from 表名;
-select 字段名 别名 from 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li><strong>like</strong></li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 匹配的字符串必须加单引号或双引号
-# 通配符% 它能代表任何长度的字符串，字符串的长度可以为 0
-# 通配符_ 它只能代表单个字符，字符串的长度不能为 0
-
-例:select * from user where name like &#39;王%&#39;;  #查询所有以王姓开头的用户
-
-
-# 默认情况下，LIKE 关键字匹配字符的时候是不区分大小写的。如果需要区分大小写，可以加入 BINARY 关键字
-例:select * from user where name like binary &#39;t%&#39;;
-# 这样就不会查询到 T 开头的名字了
-
-
-tips:
-1. % 通配符可以到匹配任意字符，但是不能匹配 NULL。
-2. mysql通配符的处理会比其他操作符花费更长的时间,如果其它操作符能达到相同的目的，应该使用其它操作符。
-3. 在确定使用通配符后，除非绝对有必要，否则不要把它们用在字符串的开始处。把通配符置于搜索模式的开始处，搜索起来是最慢的。
-4. 如果查询内容中包含通配符，可以使用&quot;\&quot;转义符。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>排序**[ASC|DESC]**</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select 字段名 from 表名 [where...] order by 字段名 [ASC|DESC];
-# ASC代表升序、DESC代表降序  不跟默认升序
-# order by 后面可以跟多个条件，例如 order by age, id desc;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>分页查询(<strong>LIMIT</strong>)</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">格式：limit 偏移量,取出的数据条数	# 偏移量不写默认为0
-limit 跳过的条数,请求的条数(每一页的条数)	# 跳过的条数 &#x3D; (请求的页数-1) * 请求的条数
-tips:分页查询一般和排序组合使用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>聚合函数</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">max, min, avg, sum, count<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li>分组查询(<strong>GROUP BY</strong>)</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">格式：group by 分组字段名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<ul>
-<li><strong>HAVING</strong></li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 和where的区别
-having：后面跟聚合函数，可以单独使用
-where：后面跟普通字段条件，不能包含聚合函数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
-<h4 id="4-子查询-嵌套查询">4.子查询(嵌套查询)</h4>
-<p>在SQL语言中，一个 SELECT-FROM-WHERE 语句称为一个查询块。将一个查询块嵌套在另一个查询块的 WHERE 子句或 HAVING 短语的条件中的查询称为 嵌套查询。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#  查询工资大于二号部门平均工资的员工信息
-select * from emp where sal &gt; (select avg(sal) from emp where dept_id &#x3D; 2);
-
-tips:
-1.子查询的SELECT语句中不能使用 ORDER BY 子句，因为 ORDER BY 子句只能对最终查询结果排序。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<h4 id="5-关联查询-同时查询多表-完善中…">5.关联查询(同时查询多表)   完善中…</h4>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">1. 等值连接|笛卡尔积
-#  查询工资高于2000的员工姓名和部门名
-select emp.name,dept.name from dept, emp where emp.sal &gt; 2000 and emp.dept_id &#x3D; dept.id;
-
-2. 内连接
-select 字段1,字段2 from 表名1 join 表名2 on 关联关系 [where...]
-
-3. 外连接
-#　外连接有三种：左外连接、右外连接、全外连接，左&#x2F;右外连接没有本质区别
-select 字段1,字段2 from 表名1 left&#x2F;right 表名2 on 关联关系 [where...]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<h4 id="6-奇技淫巧">6.<s>奇技淫巧</s></h4>
-<ul>
-<li>修改正在使用被外键约束的列</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#　原本不允许进行修改，因为这个操作违反了外键约束，破坏了数据库完整性。
-#　但是万能的mysql提供了一个方法，临时关闭外键约束，当修改完成之后再将外键约束加回来。 
-
-SET FOREIGN_KEY_CHECKS &#x3D; 0;
-......
-......
-SET FOREIGN_KEY_CHECKS &#x3D; 1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<ul>
-<li>SQL语句书写顺序</li>
-</ul>
-<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#  完善中
-select 字段 from 表名 where 普通字段条件 group by 分组字段 having 聚合函数条件 order by 排序字段名 limit 跳过的条数，请求的条数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<h4 id="3-使用交换空间">3.使用交换空间</h4>
+<p>标记好交换文件后，我们需要将其挂载为交换空间。可以使用swapon命令：<br>
+<code>sudo swapon /swapfile</code></p>
+<h4 id="4-持久化交换空间">4.持久化交换空间</h4>
+<p>如果我们希望在系统重启后仍然可以使用交换空间，需要将其持久化。可以将swapfile添加到/etc/fstab文件中，这样系统在启动时会自动挂载交换文件。例如，我们可以使用以下命令将swapfile添加到/etc/fstab文件中：</p>
+<p><code>echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab</code><br>
+这个命令会将/swapfile添加到/etc/fstab文件中，并设置其为交换空间，你也可以手动把<code>/swapfile none swap sw 0 0</code>给追加到<code>/etc/fstab</code>的最后一行。</p>
+<p>参数解释：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">&#x2F;swapfile：这是要挂载的文件系统的路径，也就是我们之前创建的交换分区文件。
+none：这是要挂载到的目标路径，对于交换分区来说，不需要指定具体的路径，所以用 none 表示。
+swap：这是要挂载的文件系统的类型。
+sw：这是挂载选项，sw 表示交换空间。
+0 0：这是 dump 和 fsck 的参数，dump是要挂载的文件系统的备份频率，对于交换分区来说，不需要备份，所以用 0 表示；fsck是文件系统检查的优先级，对于交换分区来说，不需要检查，所以用 0 表示。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<h4 id="5-检查交换空间使用情况">5.检查交换空间使用情况</h4>
+<p>使用指令<code>swapon --show</code>可以查看当前系统中的交换空间使用情况，如下图所示：</p>
+<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/swapon--show.png" srcset="/img/loading.gif" lazyload alt="swapon --show"></p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://www.howtogeek.com/455981/how-to-create-a-swap-file-on-linux/">How to Create a Swap File on Linux</a></p>
 
                 
               </div>
@@ -497,7 +354,7 @@ select 字段 from 表名 where 普通字段条件 group by 分组字段 having 
     
       <span class="category-chain">
         
-  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
   
   
 
@@ -514,6 +371,8 @@ select 字段 from 表名 where 普通字段条件 group by 分组字段 having 
       
         <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
       
+        <a href="/tags/Linux/">#Linux</a>
+      
     </div>
   
 </div>
@@ -524,8 +383,8 @@ select 字段 from 表名 where 普通字段条件 group by 分组字段 having 
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>数据库笔记</div>
-      <div>https://exusiai.top/数据库笔记/</div>
+      <div>Linux上创建和使用SWAP</div>
+      <div>https://exusiai.top/undefined/Linux上创建和使用swapfile</div>
     </div>
     <div class="license-meta">
       
@@ -537,7 +396,7 @@ select 字段 from 表名 where 普通字段条件 group by 分组字段 having 
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月17日</div>
+          <div>2023年2月17日</div>
         </div>
       
       
@@ -569,9 +428,9 @@ select 字段 from 表名 where 普通字段条件 group by 分组字段 having 
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="软件设计师学习笔记">
+                      <a href="/undefined/Github%E5%BC%BA%E5%88%B6%E6%9B%B4%E6%96%B0%E5%8D%95%E4%B8%AA%E6%96%87%E4%BB%B6" title="Github强制更新单个文件">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">软件设计师学习笔记</span>
+                        <span class="hidden-mobile">Github强制更新单个文件</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -579,8 +438,8 @@ select 字段 from 表名 where 普通字段条件 group by 分组字段 having 
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Hexo-Github%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="Hexo-GitHub搭建教程">
-                        <span class="hidden-mobile">Hexo-GitHub搭建教程</span>
+                      <a href="/undefined/2022%E5%B9%B4%E6%80%BB%E7%BB%93" title="我的2022">
+                        <span class="hidden-mobile">我的2022</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
