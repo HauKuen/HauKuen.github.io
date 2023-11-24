@@ -16,22 +16,24 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="传送门：CF1526B 题目描述 给你一个数x，问你这个数能不能被11,111,1111，……（最少两个1）此类数字构成。（比如33&#x3D;11+11+11,144&#x3D;111+11+11+11） 输入格式： 第一行一个正整数T（(1≤T≤10000)）表示案例数，接下来每行一个正整数x(1≤x≤10^9) 输出格式： 对于每一行的x，如果能满足题意，输出“YES”，否则输出“NO”。 输入样例：">
+    <meta name="description" content="Zsh（Z Shell）是一个在Unix&#x2F;Linux操作系统中的命令行解释器，相比于Bash（Bourne Again Shell），Zsh具有更强大的自动补全、丰富的插件和主题生态系统、高级历史记录、更多的参数替换选项、灵活的数组处理和强大的调试功能。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CF1526B">
-<meta property="og:url" content="https://exusiai.top/undefined/CF1526B">
+<meta property="og:title" content="oh-my-zsh自用配置记录">
+<meta property="og:url" content="https://exusiai.top/article/183d71ab42a6.html">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="传送门：CF1526B 题目描述 给你一个数x，问你这个数能不能被11,111,1111，……（最少两个1）此类数字构成。（比如33&#x3D;11+11+11,144&#x3D;111+11+11+11） 输入格式： 第一行一个正整数T（(1≤T≤10000)）表示案例数，接下来每行一个正整数x(1≤x≤10^9) 输出格式： 对于每一行的x，如果能满足题意，输出“YES”，否则输出“NO”。 输入样例：">
+<meta property="og:description" content="Zsh（Z Shell）是一个在Unix&#x2F;Linux操作系统中的命令行解释器，相比于Bash（Bourne Again Shell），Zsh具有更强大的自动补全、丰富的插件和主题生态系统、高级历史记录、更多的参数替换选项、灵活的数组处理和强大的调试功能。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-07T14:18:59.000Z">
-<meta property="article:modified_time" content="2023-01-06T14:54:54.316Z">
+<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%952.png">
+<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%953.png">
+<meta property="article:published_time" content="2023-11-21T14:06:56.000Z">
+<meta property="article:modified_time" content="2023-11-24T08:44:27.294Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%952.png">
   
   
   
-  <title>CF1526B - 时砾逐光</title>
+  <title>oh-my-zsh自用配置记录 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -200,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="CF1526B"></span>
+            <span id="subtitle" data-typed-text="oh-my-zsh自用配置记录"></span>
           
         </div>
 
@@ -211,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-07 22:18" pubdate>
-          2022年5月7日 晚上
+        <time datetime="2023-11-21 22:06" pubdate>
+          2023年11月21日 晚上
         </time>
       </span>
     
@@ -223,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          831 字
+          1.5k 字
         
       </span>
     
@@ -234,7 +236,7 @@
         
         
         
-          7 分钟
+          13 分钟
         
       </span>
     
@@ -285,12 +287,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">CF1526B</h1>
+            <h1 style="display: none">oh-my-zsh自用配置记录</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年1月6日 晚上
+                    本文最后更新于：2023年11月24日 下午
                   
                 
               </p>
@@ -298,61 +300,42 @@
             
               <div class="markdown-body">
                 
-                <p><strong>传送门：<a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1526/B">CF1526B</a></strong></p>
-<p><strong>题目描述</strong><br>
-给你一个数x，问你这个数能不能被11,111,1111，……（最少两个1）此类数字构成。（比如33=11+11+11,144=111+11+11+11）</p>
-<p><strong>输入格式：</strong><br>
-第一行一个正整数T（(1≤T≤10000)）表示案例数，接下来每行一个正整数x(1≤x≤10^9)</p>
-<p><strong>输出格式：</strong><br>
-对于每一行的x，如果能满足题意，输出“YES”，否则输出“NO”。</p>
-<p><strong>输入样例：</strong></p>
+                <p>Zsh（Z Shell）是一个在Unix/Linux操作系统中的命令行解释器，相比于Bash（Bourne Again Shell），Zsh具有更强大的自动补全、丰富的插件和主题生态系统、高级历史记录、更多的参数替换选项、灵活的数组处理和强大的调试功能。</p>
+<span id="more"></span>
+<h2 id="安装zsh">安装zsh</h2>
+<p>以我用过的OS举例</p>
+<p>Ubuntu:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">sudo apt-get install zsh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>Arch Linux:</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">sudo pacman -S zsh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>安装好后运行<code>chsh -s /bin/zsh</code>设置zsh为默认shell，如果遇到极为特殊的情况zsh不在此路径下（<s>真的有吗？</s>），可以使用<code>which zsh</code>来确定zsh的路径，然后在命令中进行替换，或者直接使用<code>chsh -s $(which zsh)</code>命令进行设置。</p>
+<h2 id="下载oh-my-zsh">下载oh-my-zsh</h2>
+<p>1、使用curl安装</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>2、使用wget安装</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<p>如果是国内机有墙的话可以使用使用Static CDN提供的反代服务。将 <code>raw.githubusercontent.com</code> 换成<code>raw.staticdn.net</code>即可加速（截止2023.11.22仍可加速）</p>
+<h3 id="插件推荐">插件推荐</h3>
+<p>oh-my-zsh同样有很多自带插件在<code>~/.oh-my-zsh/plugins</code>里，默认只启用了git，这里推荐部分我比较喜欢用的插件，非自带插件会指明下载地址，未说明则均为自带插件无需下载。</p>
+<h4 id="1、Z">1、Z</h4>
+<p>Z 插件是一个用于快速跳转到最常用目录的插件。它通过记忆和分析用户在命令行中的行为来确定用户最常访问的目录，并允许用户使用简短的别名快速切换到这些目录。Z 插件会记住用户经常访问的目录，并根据用户的行为进行排序。这样，当用户想要切换到某个目录时，只需键入与该目录相关的部分名称，Z 插件就会智能地补全并跳转到匹配的目录。</p>
+<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%952.png" srcset="/img/loading.gif" lazyload alt="示例"></p>
+<p><strong>用法：z 目录名称</strong></p>
+<p>同时如果文件目录前缀没有重复的话，可以使用<strong>正则表达式</strong>匹配或者直接简写，上图示例则可以写为 <strong>z the</strong> 也能跳转到themes文件夹下。如果是第一次跳转对结果不明确，也可以在命令输入完成后按下tab键，此时会z插件会自动显示完整路径以便确认。</p>
+<p>启用方式：</p>
+<p>在 <code>.zshrc</code> 文件里找到 **plugins=(xxxx)**数组 ,在括号里面加上插件名即可。例如：<strong>plugins=(git z 插件A 插件B xxxx)</strong> ，添加后记得执行 <code>source ~/.zshrc</code>。</p>
+<h4 id="2、extract">2、extract</h4>
+<p>extract 插件定义了一个名为 <code>extract</code> 的函数，用于解压缩你传递给它的文件，并支持多种存储文件类型。</p>
+<p><strong>用法：extract 文件名称</strong></p>
+<p>这样一来，你就不需要知道具体的解压缩命令，只需执行 <code>extract &lt;filename&gt;</code> 就可以解压大部分常见文件，支持文件扩展名点<a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract">这里</a>查看</p>
 <blockquote>
-<p>4<br>
-33<br>
-144<br>
-121<br>
-69</p>
+<p>PS: 直接输入<code>x 文件名</code>也能解压，不需要输入完整函数名，非常方便！</p>
 </blockquote>
-<p><strong>输出样例：</strong></p>
-<blockquote>
-<p>YES<br>
-YES<br>
-YES<br>
-NO</p>
-</blockquote>
-<p><strong>思路</strong><br>
-因为1111，11111,111111等都可以由11，111组成，所以只用看该数字能不能用<strong>11，111</strong>组成即可。</p>
-<p><strong>AC代码</strong></p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-cpp" data-language="cpp"><code class="language-cpp">#include &lt;algorithm&gt;
-#include &lt;cmath&gt;
-#include &lt;cstring&gt;
-#include &lt;iostream&gt;
-#include &lt;map&gt;
-#include &lt;queue&gt;
-#include &lt;stack&gt;
-#include &lt;vector&gt;
-typedef long long ll;
-#define IOS ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)
-#define max(a, b) (a &gt; b ? a : b)
-#define min(a, b) (a &lt; b ? a : b)
-using namespace std;
+<h4 id="3、zsh-syntax-highlighting">3、zsh-syntax-highlighting</h4>
+<p>这个插件为 zsh 提供语法高亮功能。它可以在用户在交互式终端的 zsh 提示符中输入命令时进行高亮显示。这有助于在运行命令之前审查命令，特别是在捕捉语法错误方面。</p>
+<p>即使在命令输入过程中，这个插件也能对命令进行高亮显示，使用户能够更清晰地看到命令的结构和语法。这对于编写复杂的命令或避免常见的语法错误非常有帮助。</p>
+<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/oh-my-zsh%E8%87%AA%E7%94%A8%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%953.png" srcset="/img/loading.gif" lazyload alt="命令错误则会显示红色"></p>
 
-int main()
-&#123;
-    int n, a;
-    cin &gt;&gt; n;
-    for (int i &#x3D; 0; i &lt; n; i++)
-    &#123;
-        cin &gt;&gt; a;
-        int cot &#x3D; a &#x2F; 111;
-        if (a % 11 &lt;&#x3D; cot)
-            cout
-                &lt;&lt; &quot;YES&quot; &lt;&lt; endl;
-        else
-            cout &lt;&lt; &quot;NO&quot; &lt;&lt; endl;
-    &#125;
-    return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
                 
               </div>
             
@@ -360,34 +343,6 @@ int main()
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
-      
-    </div>
   
 </div>
 
@@ -397,8 +352,8 @@ int main()
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>CF1526B</div>
-      <div>https://exusiai.top/undefined/CF1526B</div>
+      <div>oh-my-zsh自用配置记录</div>
+      <div>https://exusiai.top/article/183d71ab42a6.html</div>
     </div>
     <div class="license-meta">
       
@@ -410,7 +365,7 @@ int main()
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年5月7日</div>
+          <div>2023年11月21日</div>
         </div>
       
       
@@ -442,9 +397,9 @@ int main()
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/undefined/2022%E5%B9%B4%E7%AC%AC%E5%8D%81%E4%B8%89%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%9C%81%E8%B5%9B%E4%B8%AA%E4%BA%BA%E9%A2%98%E8%A7%A3" title="2022年第十三届蓝桥杯省赛个人题解">
+                      <a href="/article/8467d4716bb5.html" title="猴子打字-AC自动机">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">2022年第十三届蓝桥杯省赛个人题解</span>
+                        <span class="hidden-mobile">猴子打字-AC自动机</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -452,8 +407,8 @@ int main()
                   <article class="post-next col-6">
                     
                     
-                      <a href="/undefined/%E7%B4%A0%E6%95%B0%E7%AD%9B" title="素数筛">
-                        <span class="hidden-mobile">素数筛</span>
+                      <a href="/article/59a628f1bcd8.html" title="Github强制更新单个文件">
+                        <span class="hidden-mobile">Github强制更新单个文件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

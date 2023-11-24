@@ -16,26 +16,21 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="PV操作概念：操作系统中的一种同步机制，实现对于并发进程中临界区的管理。 并发进程分为两种： ①无交互的并发进程：每个进程是相互独立的，谁也不影响谁，基本不会用到PV操作。 ②有交互的并发进程：多个进程共享资源，一个进程的运行，有可能会被外界的原因而中断，且断点不固定。进程执行的相对速度不能由进程自己来控制，于是就会导致并发进程在共享资源的时出现与时间有关的错误。 临界区：并发进程中与共享变量有关">
+    <meta name="description" content="个人博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="操作系统PV操作的理解">
-<meta property="og:url" content="https://exusiai.top/undefined/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9FPV%E6%93%8D%E4%BD%9C%E7%9A%84%E7%90%86%E8%A7%A3">
+<meta property="og:title" content="Github强制更新单个文件">
+<meta property="og:url" content="https://exusiai.top/article/59a628f1bcd8.html">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="PV操作概念：操作系统中的一种同步机制，实现对于并发进程中临界区的管理。 并发进程分为两种： ①无交互的并发进程：每个进程是相互独立的，谁也不影响谁，基本不会用到PV操作。 ②有交互的并发进程：多个进程共享资源，一个进程的运行，有可能会被外界的原因而中断，且断点不固定。进程执行的相对速度不能由进程自己来控制，于是就会导致并发进程在共享资源的时出现与时间有关的错误。 临界区：并发进程中与共享变量有关">
+<meta property="og:description" content="个人博客">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20221122200128815.png">
-<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/1666361800241.png">
-<meta property="article:published_time" content="2022-10-21T14:08:46.000Z">
-<meta property="article:modified_time" content="2022-11-22T12:01:52.202Z">
+<meta property="article:published_time" content="2023-02-21T14:17:15.000Z">
+<meta property="article:modified_time" content="2023-02-21T14:17:19.424Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="学习">
-<meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20221122200128815.png">
   
   
   
-  <title>操作系统PV操作的理解 - 时砾逐光</title>
+  <title>Github强制更新单个文件 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="操作系统PV操作的理解"></span>
+            <span id="subtitle" data-typed-text="Github强制更新单个文件"></span>
           
         </div>
 
@@ -215,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-10-21 22:08" pubdate>
-          2022年10月21日 晚上
+        <time datetime="2023-02-21 22:17" pubdate>
+          2023年2月21日 晚上
         </time>
       </span>
     
@@ -227,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          490 字
+          0 字
         
       </span>
     
@@ -238,7 +233,7 @@
         
         
         
-          5 分钟
+          1 分钟
         
       </span>
     
@@ -289,12 +284,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">操作系统PV操作的理解</h1>
+            <h1 style="display: none">Github强制更新单个文件</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2022年11月22日 晚上
+                    本文最后更新于：2023年2月21日 晚上
                   
                 
               </p>
@@ -302,27 +297,7 @@
             
               <div class="markdown-body">
                 
-                <p><strong>PV操作概念</strong>：操作系统中的一种同步机制，实现对于并发进程中临界区的管理。</p>
-<p>并发进程分为两种：</p>
-<p>①<strong>无交互的并发进程</strong>：每个进程是相互独立的，谁也不影响谁，基本不会用到PV操作。</p>
-<p>②<strong>有交互的并发进程</strong>：多个进程共享资源，一个进程的运行，有可能会被外界的原因而中断，且断点不固定。进程执行的相对速度不能由进程自己来控制，于是就会导致并发进程在共享资源的时出现<strong>与时间有关的错误</strong>。</p>
-<p><strong>临界区</strong>：并发进程中与共享变量有关的程序段都称为临界区。</p>
-<p><strong>P操作</strong>：申请资源操作。</p>
-<p><strong>V操作</strong>：释放资源操作。</p>
-<p><strong>信号量S</strong>：用来记录资源数量，看是否能满足申请资源的操作。例如：S=3 表示三个可用空闲资源，S&lt;0表示可用空闲资源无，进程申请要进入等待队列中。</p>
-<p><strong>P(S)：S &lt;—— S - 1</strong></p>
-<p>​          <strong>如果S &gt;= 0，进程继续执行</strong></p>
-<p>​          <strong>如果S &lt; 0，进程停止执行，放入信号量等待队列中。</strong></p>
-<p><strong>V(S)：S &lt;—— S +1</strong></p>
-<p>​           <strong>如果S &gt; 0，进程继续执行；</strong></p>
-<p>​           <strong>如果S &lt;= 0，唤醒等待队列中的一个进程。</strong></p>
-<p><strong>例题</strong></p>
-<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20221122200128815.png" srcset="/img/loading.gif" lazyload alt="image-20221122200128815"></p>
-<p>应试做题方法：</p>
-<p>从左到右、从上到下的将所有信号量标注在前驱图的箭头上，出发点是V操作，结束点是P操作，按照图选择答案即可。</p>
-<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/1666361800241.png" srcset="/img/loading.gif" lazyload alt="1666361800241"></p>
-<p>所以易得答案CAA</p>
-
+                
                 
               </div>
             
@@ -330,36 +305,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
-      
-        <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">#操作系统</a>
-      
-    </div>
   
 </div>
 
@@ -369,8 +314,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>操作系统PV操作的理解</div>
-      <div>https://exusiai.top/undefined/操作系统PV操作的理解</div>
+      <div>Github强制更新单个文件</div>
+      <div>https://exusiai.top/article/59a628f1bcd8.html</div>
     </div>
     <div class="license-meta">
       
@@ -382,7 +327,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年10月21日</div>
+          <div>2023年2月21日</div>
         </div>
       
       
@@ -414,9 +359,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/undefined/HTML%E7%AC%94%E8%AE%B0" title="HTML笔记">
+                      <a href="/article/183d71ab42a6.html" title="oh-my-zsh自用配置记录">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HTML笔记</span>
+                        <span class="hidden-mobile">oh-my-zsh自用配置记录</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -424,8 +369,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/undefined/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0" title="软件设计师学习笔记">
-                        <span class="hidden-mobile">软件设计师学习笔记</span>
+                      <a href="/article/160754cd38eb.html" title="Linux上创建和使用SWAP">
+                        <span class="hidden-mobile">Linux上创建和使用SWAP</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

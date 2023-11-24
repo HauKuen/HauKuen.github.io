@@ -16,24 +16,22 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。">
+    <meta name="description" content="跟着PHP课程重新记录一下MySQL的笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows下配置Oh My Posh">
-<meta property="og:url" content="https://exusiai.top/undefined/windows%E4%B8%8B%E9%85%8D%E7%BD%AEOh%20My%20Posh">
+<meta property="og:title" content="数据库笔记">
+<meta property="og:url" content="https://exusiai.top/article/468d368bc2e5.html">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。">
+<meta property="og:description" content="跟着PHP课程重新记录一下MySQL的笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png">
-<meta property="article:published_time" content="2022-11-07T09:04:40.000Z">
-<meta property="article:modified_time" content="2023-11-23T08:37:57.531Z">
+<meta property="article:published_time" content="2022-10-17T02:45:16.000Z">
+<meta property="article:modified_time" content="2023-11-22T15:09:06.260Z">
 <meta property="article:author" content="HauKuen">
-<meta property="article:tag" content="教程">
+<meta property="article:tag" content="学习">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png">
   
   
   
-  <title>windows下配置Oh My Posh - 时砾逐光</title>
+  <title>数据库笔记 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="windows下配置Oh My Posh"></span>
+            <span id="subtitle" data-typed-text="数据库笔记"></span>
           
         </div>
 
@@ -213,8 +211,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-07 17:04" pubdate>
-          2022年11月7日 下午
+        <time datetime="2022-10-17 10:45" pubdate>
+          2022年10月17日 上午
         </time>
       </span>
     
@@ -225,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.3k 字
+          2.7k 字
         
       </span>
     
@@ -236,7 +234,7 @@
         
         
         
-          11 分钟
+          23 分钟
         
       </span>
     
@@ -287,12 +285,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">windows下配置Oh My Posh</h1>
+            <h1 style="display: none">数据库笔记</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月23日 下午
+                    本文最后更新于：2023年11月22日 晚上
                   
                 
               </p>
@@ -300,50 +298,188 @@
             
               <div class="markdown-body">
                 
-                <p>Oh My Posh允许用户使用颜色定义和呈现提示，从而允许使用终端的全彩色调色板。它提供了对现有主题的轻松定制或个性化主题的创建，范围从标准细分到自定义实现。配置可以从一个shell或机器无缝地转移到另一个shell或机器，从而确保无论用户在哪里工作都有一致的提示。</p>
+                <h4 id="跟着PHP课程重新记录一下MySQL的笔记">跟着PHP课程重新记录一下MySQL的笔记</h4>
 <span id="more"></span>
-<h3 id="安装oh-my-posh">安装oh-my-posh</h3>
-<p>使用winget安装</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">winget install JanDeDobbeleer.OhMyPosh -s winget<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>使用scoop安装</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">scoop install https:&#x2F;&#x2F;github.com&#x2F;JanDeDobbeleer&#x2F;oh-my-posh&#x2F;releases&#x2F;latest&#x2F;download&#x2F;oh-my-posh.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>普通安装</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString(&#39;https:&#x2F;&#x2F;ohmyposh.dev&#x2F;install.ps1&#39;))<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<br>
-推荐使用scoop安装，如果没有scoop，也可以去Microsoft Store安装oh-my-posh。
-<h3 id="下载一个字体">下载一个字体</h3>
-<p>在管理员权限的命令行中输入以下指令，选择一个字体进行下载，如果频繁下载失败可以自行去网络搜索字体下载安装。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">oh-my-posh font install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>安装字体后，需要配置 Windows 终端才能使用它。这可以通过修改Windows终端设置（默认快捷方式：CTRL + SHIFT + ，）打开settings.json 文件，在配置文件中的默认属性下添加 font.face 属性。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-json" data-language="json"><code class="language-json">&#123;
-    &quot;profiles&quot;:
-    &#123;
-        &quot;defaults&quot;:
-        &#123;
-            &quot;font&quot;:
-            &#123;
-                &quot;face&quot;: &quot;MesloLGM NF&quot;
-            &#125;
-        &#125;
-    &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<h3 id="更改命令行主题">更改命令行主题</h3>
-<p>一般来说windows下推荐使用powershell，所以在<strong>powershell</strong>中输入以下指令，提示没有文件则点击新建文件。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">notepad $PROFILE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>在文件中输入</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">oh-my-posh init pwsh | Invoke-Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>添加之后，重新加载配置文件以使更改生效。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">. $PROFILE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>做完以上步骤之后，就可以在powershell中使用oh-my-posh了。</p>
-<h3 id="更改主题">更改主题</h3>
-<p>在powershell中输入以下指令，可以查看主题。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">Get-PoshThemes<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>在最底部有主题文件的位置，记录下你想修改的主题路径。</p>
-<p><img src="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/image-20230222173103716.png" srcset="/img/loading.gif" lazyload alt="我的主题路径"></p>
-<p>以我的主题1_shell为例，输入指令修改文件</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">notepad $profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-<p>将之前的文件内容替换为以下内容便可以使用自己的主题了。</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-text" data-language="text"><code class="language-text">oh-my-posh init pwsh --config "这里是你的主题路径，注意不要引号" | Invoke-Expression<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<h4 id="1-数据库操作：">1.数据库操作：</h4>
+<ul>
+<li>创建数据库</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">create database 数据库名;
+create database 数据库名 charset&#x3D;字符集;   #设定默认字符集
+create database 数据库名 default cheoharacter set 字符集;   #设定默认字符集<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>删除数据库</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">drop database 数据库名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>使用数据库</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">use 数据库名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>查询当前正在使用的数据库</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select database();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>设置数据库字符集</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">alter database 数据库名 character set 字符集;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<h4 id="2-数据表操作">2.数据表操作</h4>
+<ul>
+<li>创建表</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">create table 表名 (字段名 字段类型 [NOT NULL]);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>查询数据库的表格个数</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 第一种写法
+show tables from 数据库名;
+
+# 第二种写法,如果已经选择了使用的数据库则可以直接
+show tables;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>修改表名</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">rename table 旧表名 to 新表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>查看表格的详细信息</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">show create table 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>查看字段</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">desc 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>插入数据</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 两种写法into都可以省略
+insert into 表名 values(数据1, 数据2...) (数据1, 数据2...) # 可同时插入多组数据
+insert into 表名 (字段1,字段2...) values (数据1, 数据2...) # 这种写法可以跳过部分字段<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>查询数据</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select 字段1,字段2 from 表名 [where...][limit n][offset m]
+
+# LIMIT 属性来设定返回的记录数。
+# OFFSET指定SELECT语句开始查询的数据偏移量。默认情况下偏移量为0。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>更新数据</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">update 表名 set 字段1 &#x3D; 值1,字段2 &#x3D; 值2 [where...]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>删除数据</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">delete from 表名 [where...]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<h4 id="3-筛选条件">3.筛选条件</h4>
+<ul>
+<li>去重(<strong>distinct</strong>)</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">例：select distinct job from user;  # 查询user表中所有不重复的job名
+经常使用（count(distinct id)）来返回不重复字段的条数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li><strong>NULL</strong></li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 可以在语句中加入is null 和is not null来筛选字段数据
+例：select * from user where job is not null;   # 查询user表中所有有工作的人的信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li><strong>between</strong></li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select * from user where age between 20 and 30;  #包含范围两端<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li><strong>in</strong></li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#  in运算符允许确定指定的值是否与列表中的值或子查询中的任何值匹配。 也可以搭配not使用
+select 字段1,字段2 from 表名 where (expr|column_1) in (值1,值2);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li><strong>as</strong></li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 设置字段的别名
+select 字段名 as &quot;别名&quot; from 表名;  # 最完整的写法 as和引号都可以省略
+
+例如:
+select 字段名 &quot;别名&quot; from 表名;
+select 字段名 别名 from 表名;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li><strong>like</strong></li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 匹配的字符串必须加单引号或双引号
+# 通配符% 它能代表任何长度的字符串，字符串的长度可以为 0
+# 通配符_ 它只能代表单个字符，字符串的长度不能为 0
+
+例:select * from user where name like &#39;王%&#39;;  #查询所有以王姓开头的用户
+
+
+# 默认情况下，LIKE 关键字匹配字符的时候是不区分大小写的。如果需要区分大小写，可以加入 BINARY 关键字
+例:select * from user where name like binary &#39;t%&#39;;
+# 这样就不会查询到 T 开头的名字了
+
+
+tips:
+1. % 通配符可以到匹配任意字符，但是不能匹配 NULL。
+2. mysql通配符的处理会比其他操作符花费更长的时间,如果其它操作符能达到相同的目的，应该使用其它操作符。
+3. 在确定使用通配符后，除非绝对有必要，否则不要把它们用在字符串的开始处。把通配符置于搜索模式的开始处，搜索起来是最慢的。
+4. 如果查询内容中包含通配符，可以使用&quot;\&quot;转义符。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>排序**[ASC|DESC]**</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">select 字段名 from 表名 [where...] order by 字段名 [ASC|DESC];
+# ASC代表升序、DESC代表降序  不跟默认升序
+# order by 后面可以跟多个条件，例如 order by age, id desc;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>分页查询(<strong>LIMIT</strong>)</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">格式：limit 偏移量,取出的数据条数	# 偏移量不写默认为0
+limit 跳过的条数,请求的条数(每一页的条数)	# 跳过的条数 &#x3D; (请求的页数-1) * 请求的条数
+tips:分页查询一般和排序组合使用<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>聚合函数</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">max, min, avg, sum, count<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li>分组查询(<strong>GROUP BY</strong>)</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">格式：group by 分组字段名<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ul>
+<li><strong>HAVING</strong></li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none"># 和where的区别
+having：后面跟聚合函数，可以单独使用
+where：后面跟普通字段条件，不能包含聚合函数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></div></figure>
+<h4 id="4-子查询-嵌套查询">4.子查询(嵌套查询)</h4>
+<p>在SQL语言中，一个 SELECT-FROM-WHERE 语句称为一个查询块。将一个查询块嵌套在另一个查询块的 WHERE 子句或 HAVING 短语的条件中的查询称为 嵌套查询。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#  查询工资大于二号部门平均工资的员工信息
+select * from emp where sal &gt; (select avg(sal) from emp where dept_id &#x3D; 2);
+
+tips:
+1.子查询的SELECT语句中不能使用 ORDER BY 子句，因为 ORDER BY 子句只能对最终查询结果排序。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<h4 id="5-关联查询-同时查询多表-完善中…">5.关联查询(同时查询多表)   完善中…</h4>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">1. 等值连接|笛卡尔积
+#  查询工资高于2000的员工姓名和部门名
+select emp.name,dept.name from dept, emp where emp.sal &gt; 2000 and emp.dept_id &#x3D; dept.id;
+
+2. 内连接
+select 字段1,字段2 from 表名1 join 表名2 on 关联关系 [where...]
+
+3. 外连接
+#　外连接有三种：左外连接、右外连接、全外连接，左&#x2F;右外连接没有本质区别
+select 字段1,字段2 from 表名1 left&#x2F;right 表名2 on 关联关系 [where...]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<h4 id="6-奇技淫巧">6.<s>奇技淫巧</s></h4>
+<ul>
+<li>修改正在使用被外键约束的列</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#　原本不允许进行修改，因为这个操作违反了外键约束，破坏了数据库完整性。
+#　但是万能的mysql提供了一个方法，临时关闭外键约束，当修改完成之后再将外键约束加回来。 
+
+SET FOREIGN_KEY_CHECKS &#x3D; 0;
+......
+......
+SET FOREIGN_KEY_CHECKS &#x3D; 1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<ul>
+<li>SQL语句书写顺序</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">#  完善中
+select 字段 from 表名 where 普通字段条件 group by 分组字段 having 聚合函数条件 order by 排序字段名 limit 跳过的条数，请求的条数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+
                 
               </div>
             
@@ -361,7 +497,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
   
   
 
@@ -376,7 +512,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+        <a href="/tags/%E5%AD%A6%E4%B9%A0/">#学习</a>
       
     </div>
   
@@ -388,8 +524,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>windows下配置Oh My Posh</div>
-      <div>https://exusiai.top/undefined/windows下配置Oh My Posh</div>
+      <div>数据库笔记</div>
+      <div>https://exusiai.top/article/468d368bc2e5.html</div>
     </div>
     <div class="license-meta">
       
@@ -401,7 +537,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月7日</div>
+          <div>2022年10月17日</div>
         </div>
       
       
@@ -433,9 +569,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/undefined/vscode%E7%9A%84%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE" title="vscode的一些配置">
+                      <a href="/article/008c28a5a50a.html" title="软件设计师学习笔记">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">vscode的一些配置</span>
+                        <span class="hidden-mobile">软件设计师学习笔记</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -443,8 +579,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/undefined/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C" title="服务器操作">
-                        <span class="hidden-mobile">服务器操作</span>
+                      <a href="/article/4604b40b56ce.html" title="Hexo-GitHub搭建教程">
+                        <span class="hidden-mobile">Hexo-GitHub搭建教程</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
