@@ -16,21 +16,23 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="个人博客">
+    <meta name="description" content="Hexo 注入器 注入器被用于将静态代码片段注入生成的 HTML 的 &lt;head&gt; 和&#x2F;或 &lt;body&gt; 中。Hexo 将在 after_render:html 过滤器 之前 完成注入。 编写注入代码，需要在博客的根目录下创建 scripts 文件夹，然后在里面任意命名创建一个 js 文件即可。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BT番剧媒体库搭建">
-<meta property="og:url" content="https://exusiai.top/article/7639876b5368.html">
+<meta property="og:title" content="通过 Hexo 5 注入器为页面添加新功能">
+<meta property="og:url" content="https://exusiai.top/article/1901ac8c10de.html">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="Hexo 注入器 注入器被用于将静态代码片段注入生成的 HTML 的 &lt;head&gt; 和&#x2F;或 &lt;body&gt; 中。Hexo 将在 after_render:html 过滤器 之前 完成注入。 编写注入代码，需要在博客的根目录下创建 scripts 文件夹，然后在里面任意命名创建一个 js 文件即可。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-11-25T09:19:09.000Z">
-<meta property="article:modified_time" content="2023-11-25T09:19:09.959Z">
+<meta property="article:published_time" content="2023-11-27T07:14:29.000Z">
+<meta property="article:modified_time" content="2023-11-27T07:41:06.141Z">
 <meta property="article:author" content="HauKuen">
+<meta property="article:tag" content="教程">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>BT番剧媒体库搭建 - 时砾逐光</title>
+  <title>通过 Hexo 5 注入器为页面添加新功能 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="BT番剧媒体库搭建"></span>
+            <span id="subtitle" data-typed-text="通过 Hexo 5 注入器为页面添加新功能"></span>
           
         </div>
 
@@ -210,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-25 17:19" pubdate>
-          2023年11月25日 下午
+        <time datetime="2023-11-27 15:14" pubdate>
+          2023年11月27日 下午
         </time>
       </span>
     
@@ -222,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          2.5k 字
         
       </span>
     
@@ -233,7 +235,7 @@
         
         
         
-          1 分钟
+          21 分钟
         
       </span>
     
@@ -284,12 +286,12 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">BT番剧媒体库搭建</h1>
+            <h1 style="display: none">通过 Hexo 5 注入器为页面添加新功能</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月25日 下午
+                    本文最后更新于：2023年11月27日 下午
                   
                 
               </p>
@@ -297,7 +299,94 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="Hexo-注入器">Hexo 注入器</h2>
+<p>注入器被用于将静态代码片段注入生成的 HTML 的 <code>&lt;head&gt;</code> 和/或 <code>&lt;body&gt;</code> 中。Hexo 将在 <code>after_render:html</code> 过滤器 <strong>之前</strong> 完成注入。</p>
+<p>编写注入代码，需要在博客的根目录下创建 <code>scripts</code> 文件夹，然后在里面任意命名创建一个 js 文件即可。</p>
+<span id="more"></span>
+<h2 id="概要">概要</h2>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">hexo.extend.injector.register(entry, value, to)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<h3 id="entry-string">entry <code>&lt;string&gt;</code></h3>
+<p>代码片段注入的位置，接受以下值：</p>
+<ul>
+<li><code>head_begin</code>: 注入在 <code>&lt;head&gt;</code> 之后（默认）</li>
+<li><code>head_end</code>: 注入在 <code>&lt;/head&gt;</code> 之前</li>
+<li><code>body_begin</code>: 注入在 <code>&lt;body&gt;</code> 之后</li>
+<li><code>body_end</code>: 注入在 <code>&lt;/body&gt;</code> 之前</li>
+</ul>
+<h3 id="value-string-Function">value <code>&lt;string&gt; | &lt;Function&gt;</code></h3>
+<blockquote>
+<p>除了字符串，也支持返回值为字符串的函数</p>
+</blockquote>
+<p>需要注入的代码片段。</p>
+<h3 id="to-string">to <code>&lt;string&gt;</code></h3>
+<p>需要注入代码片段的页面类型，接受以下值：</p>
+<ul>
+<li><code>default</code>: 注入到每个页面（默认值）</li>
+<li><code>home</code>: 只注入到主页（<code>is_home()</code> 为 <code>true</code> 的页面）</li>
+<li><code>post</code>: 只注入到文章页面（<code>is_post()</code> 为 <code>true</code> 的页面）</li>
+<li><code>page</code>: 只注入到独立页面（<code>is_page()</code> 为 <code>true</code> 的页面）</li>
+<li><code>archive</code>: 只注入到归档页面（<code>is_archive()</code> 为 <code>true</code> 的页面）</li>
+<li><code>category</code>: 只注入到分类页面（<code>is_category()</code> 为 <code>true</code> 的页面）</li>
+<li><code>tag</code>: 只注入到标签页面（<code>is_tag()</code> 为 <code>true</code> 的页面）</li>
+<li>或是其他自定义 layout 名称，例如在 Fluid 主题中 <code>about</code> 对应关于页、<code>links</code> 对应友联页，自定义 layout 参见 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/writing#%E5%B8%83%E5%B1%80%EF%BC%88Layout%EF%BC%89">写作 - 布局（Layout）</a></li>
+</ul>
+<h2 id="示例">示例</h2>
+<h3 id="文章时效性提示">文章时效性提示</h3>
+<p>Fluid 作者提供了根据文章发布时间来为文章开头插入一条提示的注入代码，这条代码全主题通用。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">hexo<span class="token punctuation">.</span>extend<span class="token punctuation">.</span>injector<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'body_end'</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+&lt;script type="text/javascript">
+(function() &#123;
+  var times = document.getElementsByTagName('time');
+  if (times.length === 0) &#123; return; &#125;
+  var posts = document.getElementsByClassName('post-content');
+  if (posts.length === 0) &#123; return; &#125;
+
+  var pubTime = new Date(times[0].dateTime);  /* 文章发布时间戳 */
+  var now = Date.now()  /* 当前时间戳 */
+  var interval = parseInt(now - pubTime)
+  /* 发布时间超过指定时间（毫秒） */
+  if (interval > 3600*24*30*1000)&#123;
+    var days = parseInt(interval / 86400000)
+    posts[0].innerHTML = '&lt;div class="note note-warning" style="font-size:0.9rem">&lt;p>' +
+      '&lt;div class="h6">文章时效性提示&lt;/div>&lt;p>这是一篇发布于 ' + days + ' 天前的文章，部分信息可能已发生改变，请注意甄别。' +
+      '&lt;/p>&lt;/p>&lt;/div>' + posts[0].innerHTML;
+  &#125;
+&#125;)();
+&lt;/script>
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>但是某些技术性文章作者或许会持续更新，这种情况下判断更新时间就会更好，所以我编写了根据文章更新时间判断时效性的代码。</p>
+<p>注意：更新时间的获取代码或许仅支持 <code>Fluid</code> 主题。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript">hexo<span class="token punctuation">.</span>extend<span class="token punctuation">.</span>injector<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'body_end'</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">
+&lt;script type="text/javascript">
+(function() &#123;
+  var metaElement = document.querySelector('meta[property="article:modified_time"]');
+  if (metaElement) &#123;
+    var modifiedTime = metaElement.getAttribute('content');
+    var articleDate = new Date(modifiedTime);
+    var currentDate = new Date();
+
+    var posts = document.getElementsByClassName('post-content');
+    if (posts.length === 0) &#123;
+      return;
+    &#125;
+
+    // 计算时间差，单位为毫秒
+    var timeDifference = currentDate - articleDate;
+
+    // 一年的毫秒数
+    var oneYearInMilliseconds = 365 * 24 * 60 * 60 * 1000;
+
+    if (timeDifference > oneYearInMilliseconds) &#123;
+      var daysSinceUpdate = Math.floor(timeDifference / (24 * 60 * 60 * 1000));
+      posts[0].innerHTML = '&lt;div class="note note-warning" style="font-size:0.9rem">&lt;p>' +
+        '&lt;div class="h6">文章时效性提示&lt;/div>&lt;p>这是一篇更新于 ' + daysSinceUpdate + ' 天前的文章，部分信息可能已经有所发展或是发生改变。' +
+        '&lt;/p>&lt;/p>&lt;/div>' + posts[0].innerHTML;
+    &#125;
+  &#125;
+&#125;)();
+&lt;/script>
+</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+
                 
               </div>
             
@@ -305,6 +394,36 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%95%99%E7%A8%8B/" class="category-chain-item">教程</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+      
+        <a href="/tags/Hexo/">#Hexo</a>
+      
+    </div>
   
 </div>
 
@@ -314,8 +433,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>BT番剧媒体库搭建</div>
-      <div>https://exusiai.top/article/7639876b5368.html</div>
+      <div>通过 Hexo 5 注入器为页面添加新功能</div>
+      <div>https://exusiai.top/article/1901ac8c10de.html</div>
     </div>
     <div class="license-meta">
       
@@ -327,7 +446,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月25日</div>
+          <div>2023年11月27日</div>
         </div>
       
       
@@ -359,18 +478,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/article/1901ac8c10de.html" title="通过 Hexo 5 注入器为页面添加新功能">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">通过 Hexo 5 注入器为页面添加新功能</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/article/8467d4716bb5.html" title="猴子打字-AC自动机">
-                        <span class="hidden-mobile">猴子打字-AC自动机</span>
+                      <a href="/article/7639876b5368.html" title="BT番剧媒体库搭建">
+                        <span class="hidden-mobile">BT番剧媒体库搭建</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

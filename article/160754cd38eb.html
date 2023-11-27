@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://hiroshi-typota.oss-cn-chengdu.aliyuncs.com/img/swapon--show.png">
 <meta property="article:published_time" content="2023-02-17T07:01:14.000Z">
-<meta property="article:modified_time" content="2023-11-22T14:31:59.902Z">
+<meta property="article:modified_time" content="2023-11-27T07:17:23.259Z">
 <meta property="article:author" content="HauKuen">
 <meta property="article:tag" content="学习">
 <meta property="article:tag" content="Linux">
@@ -74,7 +74,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"exusiai.top","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":"fales","default":"text"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"exusiai.top","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":"fales","default":"text"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":3},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -293,7 +293,7 @@
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年11月22日 晚上
+                    本文最后更新于：2023年11月27日 下午
                   
                 
               </p>
@@ -354,7 +354,7 @@ sw：这是挂载选项，sw 表示交换空间。
     
       <span class="category-chain">
         
-  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="category-chain-item">学习</a>
   
   
 
@@ -745,28 +745,30 @@ sw：这是挂载选项，sw 表示交换空间。
 <!-- hexo injector body_end start -->
 <script type="text/javascript">
 (function() {
-    var metaElement = document.querySelector('meta[property="article:modified_time"]');
-if (metaElement) {
-  var modifiedTime = metaElement.getAttribute('content');
-  var articleDate = new Date(modifiedTime);
-  var currentDate = new Date();
+  var metaElement = document.querySelector('meta[property="article:modified_time"]');
+  if (metaElement) {
+    var modifiedTime = metaElement.getAttribute('content');
+    var articleDate = new Date(modifiedTime);
+    var currentDate = new Date();
 
-  var posts = document.getElementsByClassName('post-content');
-  if (posts.length === 0) { return; }
-  
-  // 计算时间差，单位为毫秒
-  var timeDifference = currentDate - articleDate;
+    var posts = document.getElementsByClassName('post-content');
+    if (posts.length === 0) {
+      return;
+    }
 
-  // 一年的毫秒数
-  var oneYearInMilliseconds = 365 * 24 * 60 * 60 * 1000;
+    // 计算时间差，单位为毫秒
+    var timeDifference = currentDate - articleDate;
 
-  if (timeDifference > oneYearInMilliseconds) {
-    var daysSinceUpdate = Math.floor(timeDifference / (24 * 60 * 60 * 1000));
-    posts[0].innerHTML = '<div class="note note-warning" style="font-size:0.9rem"><p>' +
-      '<div class="h6">文章时效性提示</div><p>这是一篇修改于 ' + daysSinceUpdate + ' 天前的文章，部分信息可能已发生改变，请注意甄别。' +
-      '</p></p></div>' + posts[0].innerHTML;
+    // 一年的毫秒数
+    var oneYearInMilliseconds = 365 * 24 * 60 * 60 * 1000;
+
+    if (timeDifference > oneYearInMilliseconds) {
+      var daysSinceUpdate = Math.floor(timeDifference / (24 * 60 * 60 * 1000));
+      posts[0].innerHTML = '<div class="note note-warning" style="font-size:0.9rem"><p>' +
+        '<div class="h6">文章时效性提示</div><p>这是一篇更新于 ' + daysSinceUpdate + ' 天前的文章，部分信息可能已经有所发展或是发生改变。' +
+        '</p></p></div>' + posts[0].innerHTML;
+    }
   }
-}
 })();
 </script>
 <!-- hexo injector body_end end --></body>
