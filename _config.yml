@@ -151,7 +151,7 @@ deploy:
 backup:
     type: git
     repository:
-       github: git@github.com:HauKuen/HauKuen.github.io.git,backup
+       github: https://github.com/HauKuen/HauKuen.github.io.git,backup
 
 # 摘要
 excerpt:			# 一定要顶格写，注意格式
