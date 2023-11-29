@@ -148,11 +148,6 @@ deploy:
   repository: git@github.com:HauKuen/HauKuen.github.io.git
   branch: master
 
-backup:
-    type: git
-    repository:
-       github: https://github.com/HauKuen/HauKuen.github.io.git,backup
-
 # 摘要
 excerpt:			# 一定要顶格写，注意格式
   depth: 5			# 他的大小就是全文阅读预览长度设置
