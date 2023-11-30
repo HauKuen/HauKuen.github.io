@@ -84,11 +84,11 @@
   
   
   <entry>
-    <title>Github强制更新单个文件</title>
-    <link href="/article/59a628f1bcd8.html"/>
-    <url>/article/59a628f1bcd8.html</url>
+    <title>Github更新单个文件</title>
+    <link href="/article/e6b112c3ca15.html"/>
+    <url>/article/e6b112c3ca15.html</url>
     
-    <content type="html"><![CDATA[<p>暂时撤回文章</p>]]></content>
+    <content type="html"><![CDATA[<p>使用<code>git fetch</code>命令从远程仓库获取最新的变更，但不会自动合并到本地分支。</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git fetch origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>使用<code>git checkout</code>命令切换到你想更新的本地分支。</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git checkout &lt;branch-name&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>使用<code>git checkout</code>命令将远程仓库中的指定文件覆盖到你的本地工作区。</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git checkout origin&#x2F;&lt;branch-name&gt; -- &lt;path&#x2F;to&#x2F;file&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>在上面的命令中，将<code>&lt;branch-name&gt;</code>替换为远程仓库中包含要更新文件的分支名称，将<code>&lt;path/to/file&gt;</code>替换为文件的路径和名称。<br>例如，如果要更新<code>main</code>分支上的<code>src/example.js</code>文件，命令将如下所示：</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git checkout origin&#x2F;main -- src&#x2F;example.js这将覆盖本地的 src&#x2F;example.js 文件，使其与远程仓库中的最新版本一致。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>]]></content>
     
     
     
