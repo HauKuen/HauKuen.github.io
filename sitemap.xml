@@ -65,18 +65,18 @@
   </url>
   
   <url>
-    <loc>https://exusiai.top/article/7639876b5368.html</loc>
+    <loc>https://exusiai.top/article/1901ac8c10de.html</loc>
     
-    <lastmod>2023-11-29</lastmod>
+    <lastmod>2023-11-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://exusiai.top/article/1901ac8c10de.html</loc>
+    <loc>https://exusiai.top/article/7639876b5368.html</loc>
     
-    <lastmod>2023-11-27</lastmod>
+    <lastmod>2023-11-29</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -259,7 +259,7 @@
   </url>
   
   <url>
-    <loc>https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://exusiai.top/tags/Git/</loc>
     <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -287,6 +287,13 @@
   </url>
   
   <url>
+    <loc>https://exusiai.top/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2023-11-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://exusiai.top/tags/Linux/</loc>
     <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -308,21 +315,14 @@
   </url>
   
   <url>
-    <loc>https://exusiai.top/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2023-11-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://exusiai.top/tags/Git/</loc>
-    <lastmod>2023-11-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://exusiai.top/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <lastmod>2023-11-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://exusiai.top/tags/%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2023-11-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
