@@ -1,8 +1,8 @@
 ---
-title: Github更新单个文件
+title: Git更新单个文件
 date: 2023-02-21 22:17:15
-tags:
-categories:
+tags: Git
+categories: 学习
 ---
 
 使用`git fetch`命令从远程仓库获取最新的变更，但不会自动合并到本地分支。

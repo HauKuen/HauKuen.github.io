@@ -1,7 +1,7 @@
 ---
 title: HTML笔记
 date: 2022-10-24 19:58:31
-tags: 学习
+tags: 前端
 categories: 学习
 ---
 

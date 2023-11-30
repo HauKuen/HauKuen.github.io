@@ -1,7 +1,7 @@
 ---
 title: Linux上创建和使用SWAP
 date: 2023-02-17 15:01:14
-tags: [学习,Linux]
+tags: Linux
 categories: 学习
 ---
 
