@@ -1,2 +1,3 @@
 [submodule "themes/hexo-theme-fluid"]
-	url = https://github.com/HauKuen/hexo-theme-fluid/tree/master
+	url = https://github.com/HauKuen/hexo-theme-fluid.git
+	path = themes/hexo-theme-fluid
