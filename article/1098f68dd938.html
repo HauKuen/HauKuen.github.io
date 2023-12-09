@@ -16,15 +16,15 @@
   <meta name="author" content="HauKuen">
   <meta name="keywords" content="">
   
-    <meta name="description" content="个人博客">
+    <meta name="description" content="前言 Linux提供了强大而灵活的权限管理机制，为用户和管理员提供了极大的控制能力。无论是在个人计算机、服务器还是嵌入式设备中，Linux的权限控制系统都是确保数据安全和系统稳定性的重要组成部分。 在Linux中，每个文件和目录都有一组权限，这些权限定义了对它们的访问和操作权限。这种基于权限的访问控制是Linux安全模型的核心，它确保只有经过授权的用户可以访问敏感数据或执行关键操作。同时，Linu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Linux中理解用户管理&amp;实现有效的访问控制">
+<meta property="og:title" content="在Linux中理解用户管理并实现有效的访问控制">
 <meta property="og:url" content="https://exusiai.top/article/1098f68dd938.html">
 <meta property="og:site_name" content="时砾逐光">
-<meta property="og:description" content="个人博客">
+<meta property="og:description" content="前言 Linux提供了强大而灵活的权限管理机制，为用户和管理员提供了极大的控制能力。无论是在个人计算机、服务器还是嵌入式设备中，Linux的权限控制系统都是确保数据安全和系统稳定性的重要组成部分。 在Linux中，每个文件和目录都有一组权限，这些权限定义了对它们的访问和操作权限。这种基于权限的访问控制是Linux安全模型的核心，它确保只有经过授权的用户可以访问敏感数据或执行关键操作。同时，Linu">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-07T15:17:30.000Z">
-<meta property="article:modified_time" content="2023-12-07T15:18:52.997Z">
+<meta property="article:modified_time" content="2023-12-09T08:37:41.170Z">
 <meta property="article:author" content="HauKuen">
 <meta property="article:tag" content="教程">
 <meta property="article:tag" content="Linux">
@@ -32,7 +32,7 @@
   
   
   
-  <title>在Linux中理解用户管理&amp;实现有效的访问控制 - 时砾逐光</title>
+  <title>在Linux中理解用户管理并实现有效的访问控制 - 时砾逐光</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -76,7 +76,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"exusiai.top","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":"fales","default":"text"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"exusiai.top","root":"/","version":"1.9.6","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":"fales","default":"text"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"left","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":true,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -121,7 +121,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/">
+              <a class="nav-link" href="/" target="_self">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -133,7 +133,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/archives/">
+              <a class="nav-link" href="/archives/" target="_self">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -145,7 +145,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/categories/">
+              <a class="nav-link" href="/categories/" target="_self">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -157,7 +157,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
+              <a class="nav-link" href="/tags/" target="_self">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -169,7 +169,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/about/">
+              <a class="nav-link" href="/about/" target="_self">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -205,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="在Linux中理解用户管理&amp;实现有效的访问控制"></span>
+            <span id="subtitle" data-typed-text="在Linux中理解用户管理并实现有效的访问控制"></span>
           
         </div>
 
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.7k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          1 分钟
+          15 分钟
         
       </span>
     
@@ -289,13 +289,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">在Linux中理解用户管理&amp;实现有效的访问控制</h1>
+            <h1 id="seo-header">在Linux中理解用户管理并实现有效的访问控制</h1>
             
               <p class="note note-info">
                 
                   
-                    本文最后更新于：2023年12月7日 晚上
+                    本文最后更新于：2023年12月9日 下午
                   
                 
               </p>
@@ -303,7 +302,101 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="前言">前言</h2>
+<p>Linux提供了强大而灵活的权限管理机制，为用户和管理员提供了极大的控制能力。无论是在个人计算机、服务器还是嵌入式设备中，Linux的权限控制系统都是确保数据安全和系统稳定性的重要组成部分。</p>
+<p>在Linux中，每个文件和目录都有一组权限，这些权限定义了对它们的访问和操作权限。这种基于权限的访问控制是Linux安全模型的核心，它确保只有经过授权的用户可以访问敏感数据或执行关键操作。同时，Linux提供了多层次的权限控制，使管理员可以对不同用户和用户组进行细粒度的权限分配，从而实现了安全的多用户环境。</p>
+<h2 id="文件权限">文件权限</h2>
+<h3 id="权限类型解析">权限类型解析</h3>
+<p>在Linux中，每个文件和目录都有三组权限：所有者（Owner）、所属组（Group）和其他用户（Others），每组权限包括读取（Read）、写入（Write）和执行（Execute）权限</p>
+<ul>
+<li>读取权限（r）允许查看文件的内容和属性</li>
+<li>写入权限（w）允许修改文件的内容和属性</li>
+<li>执行权限（x）允许以可执行文件或目录的形式运行文件或访问目录</li>
+</ul>
+<p>除了用 r w x 这三个字母表示外，权限也可以用数字表示：r=4，w=2，x=1。将三个权限相加可以得到一个三位数的数字表示权限组的值，例如rwx（读、写、执行）为7，rw-（读、写）为6，r–（只读）为4。每个权限位有两种可能的状态，有3个权限位，所以总共有 <em>$2^3 = 8$</em> 种不同的权限搭配。这些不同的权限搭配提供了灵活的权限控制选项，使管理员可以根据需要精确地控制每个文件和目录的访问和操作权限。</p>
+<p>使用<code>ls -l</code>命令可以查看文件的权限。例如：</p>
+<blockquote>
+<p>drwx-w-r-x 16 hk    hk    4096 Dec  8 22:56 hk</p>
+</blockquote>
+<p>第一个字符 “d” 表示这是一个目录。如果是一个普通文件，该位置将显示 “-”。后续的九个字符 “rwx-w-r-x” 表示文件的权限。由左到右，前三个字符 “rwx” 表示所有者（hk）的权限，中间三个字符 “w-” 表示所属组（hk）的权限，最后三个字符 “r-x” 表示其他用户的权限。</p>
+<h3 id="设置文件权限">设置文件权限</h3>
+<p>在Linux中，可以使用命令 <code>chmod</code> 来设置文件或目录的权限。<code>chmod</code> 命令可以通过两种方式来设置权限：符号模式（Symbolic Mode）和数字模式（Numeric Mode），通常情况下，只有文件的所有者或超级用户才有权限更改文件的权限。</p>
+<h4 id="符号模式">符号模式</h4>
+<p>使用符号模式可以直观地指定权限的增加或取消。下面是符号模式中使用的符号及其含义：</p>
+<ul>
+<li><code>+</code>：添加权限</li>
+<li><code>-</code>：取消权限</li>
+<li><code>=</code>：设置权限为指定值</li>
+</ul>
+<p>结合这些符号，可以使用如下格式设置权限：</p>
+<ul>
+<li>chmod [who] [symbol] [permissions] file</li>
+</ul>
+<figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">其中：
+- [who] 表示要设置权限的对象，可以是以下之一：
+  - u：所有者（user）。
+  - g：所属组（group）。
+  - o：其他用户（others）。
+  - a：所有用户（all），等同于 ugo。
+- [permissions] 表示要设置的权限，可以是以下之一：
+  - r：读权限。
+  - w：写权限。
+  - x：执行权限。
+  - s：设置用户或组的权限为 SUID 或 SGID（特殊权限）。
+  - t：设置目录的粘滞位（Sticky Bit）权限。
+- file 表示要设置权限的文件或目录。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>例如，要将文件 <code>example.txt</code> 的所有者权限设置为可读、可写，可以使用以下命令：</p>
+<ul>
+<li>chmod u+rw example.txt</li>
+</ul>
+<h4 id="数字模式">数字模式</h4>
+<p>使用数字模式可以直接使用数字来表示权限。每个权限对应一个数字值，通过将这些数字相加来表示多个权限的组合。结合这些数字，可以使用如下格式设置权限：</p>
+<ul>
+<li>chmod [permissions] file</li>
+</ul>
+<p>例如，要将文件 <code>example.txt</code> 的权限设置为所有者可读、可写，所属组可读，其他用户可执行，可以使用以下命令：</p>
+<ul>
+<li>chmod 764 example.txt</li>
+</ul>
+<p>在数字模式下，可以使用特殊的权限位来设置一些特殊权限。这些特殊权限位称为粘滞位（数字1）、SUID（数字4） 位和 SGID（数字2） 位。</p>
+<ol>
+<li>SUID（Set User ID）权限：
+<ul>
+<li>当 SUID 权限应用于可执行文件时，它指定该文件在执行时将使用文件所有者的权限而不是执行者自身的权限。这意味着，当普通用户执行具有 SUID 权限的可执行文件时，该文件将以文件所有者的权限运行。</li>
+<li>SUID 权限的示例用法是 <code>/bin/passwd</code> 可执行文件，该文件允许普通用户更改自己的密码，但是只有管理员才能更改其他用户的密码。这是通过将 <code>/bin/passwd</code> 设置为具有 SUID 权限来实现的，这样普通用户在执行该文件时将以管理员的权限执行。</li>
+</ul>
+</li>
+<li>SGID（Set Group ID）权限：
+<ul>
+<li>当 SGID 权限应用于可执行文件或目录时，它指定该文件或目录在执行时将使用文件所属组的权限而不是执行者自身的权限。这意味着，当普通用户执行具有 SGID 权限的可执行文件或访问具有 SGID 权限的目录时，将以文件所属组的权限运行。</li>
+<li>SGID 权限的示例用法是 <code>/usr/bin/newgrp</code> 可执行文件，该文件允许用户切换到其他组。当用户执行 <code>/usr/bin/newgrp</code> 时，它将以该组的权限运行。</li>
+</ul>
+</li>
+<li>粘滞位（Sticky Bit）:
+<ul>
+<li>当目录设置了粘滞位后，只有目录的所有者、文件的所有者或超级用户才能删除或重命名该目录中的文件。其他用户无法删除或重命名不属于自己的文件，即使对于该目录具有写权限也不行。</li>
+<li>粘滞位的主要用途是在多个用户共享同一个目录时，确保用户只能删除或修改自己创建的文件，而无法删除或修改其他用户创建的文件。</li>
+</ul>
+</li>
+</ol>
+<h2 id="用户和用户组">用户和用户组</h2>
+<p>在Linux系统中，用户可以划分为不同的组，这样可以更好地管理用户的访问权限和资源，每个用户可以属于一个或多个用户组。通过正确设置文件权限和用户组，可以实现对文件和目录的细粒度访问控制，确保系统的安全性和可管理性。</p>
+<h3 id="常见用户组">常见用户组</h3>
+<ol>
+<li><strong>root（超级用户组）：</strong>
+<ul>
+<li>GID: 0</li>
+<li>说明：root是系统中最高权限的用户组，拥有对系统的完全控制权限。root用户可以访问系统上的所有文件，进行系统配置和管理任务。通常情况下，只有root用户才能修改一些关键系统文件和目录。</li>
+</ul>
+</li>
+<li><strong>adm（系统日志组）：</strong>
+<ul>
+<li>GID: 4</li>
+<li>adm组拥有对系统日志文件的访问权限。系统日志记录在<code>/var/log</code>目录中，该组允许一些系统工具和日志管理程序访问日志文件。</li>
+</ul>
+</li>
+</ol>
+
                 
               </div>
             
@@ -336,9 +429,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%99%E7%A8%8B/">#教程</a>
+        <a href="/tags/%E6%95%99%E7%A8%8B/" class="print-no-link">#教程</a>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
       
     </div>
   
@@ -350,7 +443,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>在Linux中理解用户管理&amp;实现有效的访问控制</div>
+      <div>在Linux中理解用户管理并实现有效的访问控制</div>
       <div>https://exusiai.top/article/1098f68dd938.html</div>
     </div>
     <div class="license-meta">
@@ -374,7 +467,7 @@
             
               
               
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
                   <span class="hint--top hint--rounded" aria-label="BY - haukuen">
                     <i class="iconfont icon-by"></i>
                   </span>
@@ -418,8 +511,8 @@
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.14.1/waline.min.css')
-      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.14.1/waline.min.js', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
         var options = Object.assign(
           {"serverURL":"https://time-runner-5oruvii0p-haukuen.vercel.app/","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
           {
@@ -546,7 +639,7 @@
   </script>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
@@ -581,7 +674,7 @@
 
   
 <script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
