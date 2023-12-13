@@ -29,7 +29,7 @@ sudo pacman -S zsh
 
 
 
-安装好后运行``chsh -s /bin/zsh``设置zsh为默认shell，如果遇到极为特殊的情况zsh不在此路径下（~~真的有吗？~~），可以使用``which zsh``来确定zsh的路径，然后在命令中进行替换，或者直接使用``chsh -s $(which zsh)``命令进行设置。
+安装好后运行``chsh -s /bin/zsh``设置zsh为默认shell，如果遇到极为特殊的情况zsh不在此路径下（~~真的有吗？~~  2023.12.12记，还真给我遇见了，今天配一个新arch机器的时候不知道为什么第一个命令不生效），可以使用``which zsh``来确定zsh的路径，然后在命令中进行替换，或者直接使用``chsh -s $(which zsh)``命令进行设置。
 
 
 
