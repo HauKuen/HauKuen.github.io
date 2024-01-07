@@ -1,2 +1,1 @@
-# 在Windows上使用CRLF，在Unix上使用LF
-* text=auto eol=crlf
+*.html text eol=crlf
