@@ -142,7 +142,7 @@ mathjax:
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/HauKuen/HauKuen.github.io.git
+  repository: git@github.com:HauKuen/HauKuen.github.io.git
   branch: master
 
 # 摘要
