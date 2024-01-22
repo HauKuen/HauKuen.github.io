@@ -8,8 +8,14 @@
       <link href="/article/a1d9e410697e.html"/>
       <url>/article/a1d9e410697e.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h2 id="前言">前言</h2><p><code>hexo-deployer-git</code> 插件虽然能把静态资源托管在github，但是插件只能备份生成出来的网站文件，不能备份本地的源码文件，因此我选择手动将源码文件同步到github以此来跨设备使用。</p><span id="more"></span><p>虽然已经有人为此写了一款插件 <code>hexo-git-backup</code> 但是经过我的实测这个插件对主题的备份有bug，翻看 issue 发现这个问题2016年就提出来了，维护者已经放弃了维护，而且根据项目介绍使用此插件会删除主题文件夹的 <code>.git</code> 文件夹，后续无法更新主题，权衡之下还是选择手动同步，日后有空或许会自己开发一个备份插件。</p><h2 id="备份">备份</h2><p><strong>注意：因为懒得新开个仓库所以我就直接在io仓库开了个分支进行备份，如果配置文件涉及到隐私请自行新建 private 仓库</strong></p><p>把博客根目录初始化成 git 仓库，切分支就直接略过，然后配好 ignore 文件,我的配置如下</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">.DS_StoreThumbs.dbdb.json*.lognode_modules&#x2F;public&#x2F;.deploy*&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure><p>只要别上传 <code>node_modules</code> 和 <code>.deploy_git</code> 这俩文件夹就行。<br>重点是 <code>themes</code> 文件夹的处理，因为主题是从别人的仓库拉取的，所以不能直接上传到我们的仓库，这里要把主题配置成子模块。</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git submodule add 子项目url 子项目在本地的路径<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>用 <code>git submodule</code> 查看是否正确</p><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">$ git submodule 85add1e141d3bb6663a0bc296a6c9646xxxxxxxx themes&#x2F;hexo-theme-fluid<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure><h2 id="拉取">拉取</h2><p>虽然拉取可以用 <code>git clone &lt;URL&gt; --recursive </code> 一次性递归克隆整个项目，但是以前经常遇见克隆一些大型项目子模块失败，后面就慢慢养成分步克隆的习惯了。</p><ol><li>拉取主项目</li><li>初始化子模块</li></ol><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git submodule init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><ol start="3"><li>更新子模块</li></ol><figure><div class="code-wrapper"><pre class="line-numbers language-none"><code class="language-none">git submodule update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure><p>这样所有文件就拉取下来了。</p>]]></content>
       
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+      </categories>
       
       
         <tags>
