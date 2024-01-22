@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>如何跨设备同步hexo</title>
+      <link href="/article/a1d9e410697e.html"/>
+      <url>/article/a1d9e410697e.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>吐槽一次配node犯的抽象错误</title>
       <link href="/article/db90c03f85c2.html"/>
       <url>/article/db90c03f85c2.html</url>
@@ -45,9 +66,9 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Linux </tag>
+            
+            <tag> 教程 </tag>
             
         </tags>
       
