@@ -44,6 +44,7 @@ render_drafts: false
 post_asset_folder: false # 自动创建同名文件夹存放资源
 relative_link: false
 future: true
+
 # 关闭了hexo自带的高亮显示
 highlight:
   enable: true
@@ -146,7 +147,7 @@ deploy:
   branch: master
 
 # 摘要
-excerpt:			# 一定要顶格写，注意格式
+excerpt:
   depth: 5			# 他的大小就是全文阅读预览长度设置
   excerpt_excludes: []
   more_excludes: []

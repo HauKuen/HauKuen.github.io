@@ -44,6 +44,7 @@ render_drafts: false
 post_asset_folder: false # 自动创建同名文件夹存放资源
 relative_link: false
 future: true
+
 # 关闭了hexo自带的高亮显示
 highlight:
   enable: true
@@ -55,6 +56,7 @@ highlight:
     - example
   wrap: true
   hljs: false
+  
 prismjs:
   enable: false
   preprocess: true
